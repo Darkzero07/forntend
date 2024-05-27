@@ -29,33 +29,37 @@
     color: black
 }
 
-.login {
-    padding-right: 2%;
+.nav-button {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    text-align: center;
+    width: 220px;
+    margin-top: 0;
+    padding: 2px;
 }
+
 
 .login>button {
     background-color: green;
-    margin: 2% 0 2% 5%;
 }
 
 .login>button>a {
     color: black;
 }
 
-.register {
-    padding-right: 5%;
-}
+
 
 .register>button {
     background-color: rgb(0, 0, 0);
-    margin: 2% 0 2% 5%;
 }
 
 .register>button>a {
     color: rgb(255, 255, 255);
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
     .navbar {
         display: flex;
         flex-direction: column;
@@ -126,6 +130,10 @@
         text-align: center;
         margin: 1px;
         padding: 1px;
+    }
+
+    .nav-button{
+        flex-direction: column;
     }
 
     .login>button {

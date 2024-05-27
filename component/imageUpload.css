@@ -1,9 +1,4 @@
-body {
-  background-image: url("src/assets/pexels-kampus-8941562.jpg");
-  height: 526px;
-  background-size: cover;
-  justify-content: space-around;
-}
+
 
 .upload {
   width: 100%;
@@ -15,7 +10,7 @@ body {
   flex-direction: column;
 }
 
-.container {
+.upload-container {
   background-color: rgb(14, 189, 205);
   opacity: 80%;
   border-radius: 16px;
@@ -40,7 +35,7 @@ div > a {
 }
 
 div > button {
-  margin-top: 32px;
+  /* margin-top: 32px; */
   font-size: large;
   font-weight: 800;
   color: rgb(255, 255, 255);

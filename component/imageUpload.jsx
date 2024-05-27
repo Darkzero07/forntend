@@ -21,7 +21,7 @@ const ImageUpload = () => {
 
   return (
     <div className="upload">
-      <div className="container">
+      <div className="upload-container">
         <Link to="/upload">Upload Slip</Link>
         <br />
         <input type="file" onChange={handleFile} />
