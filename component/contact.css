@@ -44,3 +44,37 @@ svg {
     font-weight: 600;
     color: black;
 }
+
+.contact-phone {
+    display: flex;
+    flex-direction: row;
+    margin-left: 160px;
+    margin-top: 32px;
+}
+
+img {
+    width: 64px;
+    height: 64px;
+}
+span {
+    /* font-size: xx-large; */
+    font-size: 36px;
+    font-weight: 600;
+    padding: 6px;
+    color: black;
+    margin-left: 8px;
+}
+
+.contact-line {
+    display: flex;
+    flex-direction: row;
+    margin-left: 160px;
+    margin-top: 32px;
+}
+
+.contact-ig {
+    display: flex;
+    flex-direction: row;
+    margin-left: 160px;
+    margin-top: 32px;
+}

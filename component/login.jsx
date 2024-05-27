@@ -15,7 +15,7 @@ const Login = () => {
   };
 
   return (
-    <div className="formdata">
+    <div className="login-formdata">
       <Form
         name="basic"
         labelCol={{
@@ -34,7 +34,7 @@ const Login = () => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item
+        <Form.Item className="login-username"
           label="Username"
           name="username"
           rules={[

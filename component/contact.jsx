@@ -22,14 +22,21 @@ const Contact = () => {
           ></iframe>
         </div>
         <div className="contact-data">
-          <div style={{ padding: "20px" }}>
-            <Row align="middle" style={{ marginBottom: "10px" }}>
-              <Col span={2}>
-                <PhoneOutlined style={{ fontSize: "24px", color: "green" }} />
-              </Col>
-              <Col span={8}>0xx-xxx-xxxx</Col>
-            </Row>
+          <div className="contact-phone">
+           <img src="../src/assets/icons8-phone-64.png" alt="phone"/>
+           <span>0X-XXXX-XXXX</span>
           </div>
+
+          <div className="contact-line">
+           <img src="../src/assets/line.png" alt="line"/>
+           <span>@ Line</span>
+          </div>
+
+           <div className="contact-ig">
+           <img src="../src/assets/instragram.png" alt="instagram"/>
+           <span>@ IG</span>
+          </div>
+          
         </div> 
       </div>
     </div>

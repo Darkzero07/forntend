@@ -34,7 +34,7 @@ div > a {
   font-weight: bold;
 }
 
-div > button {
+.upload-container > button {
   /* margin-top: 32px; */
   font-size: large;
   font-weight: 800;
