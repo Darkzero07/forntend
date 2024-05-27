@@ -8,14 +8,9 @@ const onFinish = (values) => {
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
-
-const Login = () => {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
-
-  return (
-    <div className="login-formdata">
+const Login = () => (
+  <div className="login-form">
+    <div className="login-formbasic">
       <Form
         name="basic"
         labelCol={{
@@ -34,8 +29,8 @@ const Login = () => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item className="login-username"
-          label="Username"
+        <Form.Item
+          label={<span className=" login-label-user">username&nbsp;</span>}
           name="username"
           rules={[
             {
@@ -48,7 +43,9 @@ const Login = () => {
         </Form.Item>
 
         <Form.Item
-          label="Password"
+          label={
+            <span className=" login-label-password">password&nbsp;</span>
+          }
           name="password"
           rules={[
             {
@@ -56,35 +53,22 @@ const Login = () => {
               message: "Please input your password!",
             },
           ]}
-          hasFeedback
         >
           <Input.Password />
         </Form.Item>
 
         <Form.Item
-          name="remember"
-          valuePropName="checked"
           wrapperCol={{
             offset: 8,
             span: 16,
           }}
         >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
-          <Button type="primary" htmlType="submit">
+          <Button className="login-button" type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
       </Form>
     </div>
-  );
-};
-
+  </div>
+);
 export default Login;

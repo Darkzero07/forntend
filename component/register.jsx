@@ -8,14 +8,9 @@ const onFinish = (values) => {
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
-
-const Register = () => {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
-
-  return (
-    <div className="formdata">
+const Register = () => (
+  <div className="register-form">
+    <div className="register-formbasic">
       <Form
         name="basic"
         labelCol={{
@@ -35,7 +30,7 @@ const Register = () => {
         autoComplete="off"
       >
         <Form.Item
-          label="Firstname"
+          label={<span className=" register-label-fname">firstname&nbsp;</span>}
           name="firstname"
           rules={[
             {
@@ -48,7 +43,7 @@ const Register = () => {
         </Form.Item>
 
         <Form.Item
-          label="Lastname"
+          label={<span className=" register-label-lname">lastname&nbsp;</span>}
           name="lastname"
           rules={[
             {
@@ -61,7 +56,7 @@ const Register = () => {
         </Form.Item>
 
         <Form.Item
-          label="Username"
+          label={<span className=" register-label-user">username&nbsp;</span>}
           name="username"
           rules={[
             {
@@ -74,7 +69,7 @@ const Register = () => {
         </Form.Item>
 
         <Form.Item
-          label="Password"
+          label={<span className=" register-label-password">password&nbsp;</span>}
           name="password"
           rules={[
             {
@@ -82,13 +77,12 @@ const Register = () => {
               message: "Please input your password!",
             },
           ]}
-          hasFeedback
         >
           <Input.Password />
         </Form.Item>
 
         <Form.Item
-          label="E-mail"
+          label={<span className=" register-label-email">email&nbsp;</span>}
           name="email"
           rules={[
             {
@@ -100,29 +94,18 @@ const Register = () => {
           <Input />
         </Form.Item>
 
-        <Form.Item
-          label="Telephone number"
-          name="phone"
+   <Form.Item
+          label={<span className=" register-label-phone">phone no.&nbsp;</span>}
+          name="phone no."
           rules={[
             {
               required: true,
-              message: "Please input your telephone number!",
+              message: "Please input your phone no.!",
             },
           ]}
         >
           <Input />
-        </Form.Item>
-
-        <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+        </Form.Item>        
 
         <Form.Item
           wrapperCol={{
@@ -130,13 +113,12 @@ const Register = () => {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
+          <Button className="register-button" type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
       </Form>
     </div>
-  );
-};
-
+  </div>
+);
 export default Register;

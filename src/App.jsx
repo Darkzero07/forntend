@@ -9,7 +9,6 @@ import "./App.css";
 import Footer from "../component/footer";
 import ImageUpload from "../component/imageUpload";
 
-
 const App = () => {
   return (
     <BrowserRouter>
