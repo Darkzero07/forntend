@@ -8,6 +8,7 @@ import Login from "../components/login";
 import "./App.css";
 import Footer from "../components/footer";
 import ImageUpload from "../components/imageUpload";
+import Payment from "../components/payment";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/Register" element={<Register />} />
         <Route exact path="/Login" element={<Login />} />
         <Route exact path="/upload" element={<ImageUpload />} />
+        <Route exact path="/payment" element={<Payment />} />
       </Routes>
       <Footer />
     </BrowserRouter>

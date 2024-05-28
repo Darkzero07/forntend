@@ -62,11 +62,9 @@ nav ul {
   .nav-desk {
     display: none;
   }
-  
+
   .nav-links {
     height: 4vh;
-    /* z-index: 1; */
-    
   }
 
   .nav-burger {
@@ -87,12 +85,12 @@ nav ul {
     flex-direction: column;
     justify-content: space-evenly;
     position: absolute;
-    border-top: 3px solid orange;
-    top: 4vh;
+    top: 3.4vh;
     left: 0;
-    height: 30vh;
-    width: 20%;
+    height: fit-content;
+    width: fit-content;
     background: rgb(76, 76, 81);
+    border-radius: 8px;
   }
 
   .home > a,
@@ -100,26 +98,35 @@ nav ul {
   .contact-us > a {
     text-decoration: none;
     font-weight: 400;
+    font-size: medium;
     color: rgb(255, 255, 255);
   }
 
   .login > button {
     background-color: rgb(76, 76, 81);
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
   }
 
   .register > button {
     background-color: rgb(76, 76, 81);
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
   }
 
   .login > button > a {
     color: white;
     font-weight: 400;
-    font-size: x-large;
+    font-size: medium;
   }
 
   .register > button > a {
     color: white;
     font-weight: 400;
-    font-size: x-large;
+    font-size: medium;
   }
 }

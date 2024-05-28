@@ -25,12 +25,14 @@ const Burger = () => {
     />
   );
 
-  const closeMenu = () => setclick(false);
+//   const closeMenu = () => setclick(false);
 
   return (
     <nav className="nav-burger">
+      {/* {click ? Close : burger} */}
       {click ? Close : burger}
-      {click && <NavLinks isClicked={true} closeMenu={closeMenu}/>}
+      {/* {click && <NavLinks isClicked={true} closeMenu={closeMenu}/>} */}
+      {click && <NavLinks isClicked={true} />}
     </nav>
   );
 };
