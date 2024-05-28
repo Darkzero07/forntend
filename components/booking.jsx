@@ -1,4 +1,4 @@
-import "../component/booking.css";
+import "../components/booking.css";
 import Footballcard from "../src/assets/football-card.png";
 import { UserOutlined } from "@ant-design/icons";
 

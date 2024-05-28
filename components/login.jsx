@@ -30,7 +30,7 @@ const Login = () => (
         autoComplete="off"
       >
         <Form.Item
-          label={<span className=" login-label-user">username&nbsp;</span>}
+          label={<span className="login-label-user">username&nbsp;</span>}
           name="username"
           rules={[
             {
@@ -44,7 +44,7 @@ const Login = () => (
 
         <Form.Item
           label={
-            <span className=" login-label-password">password&nbsp;</span>
+            <span className="login-label-password">password&nbsp;</span>
           }
           name="password"
           rules={[

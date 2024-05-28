@@ -1,4 +1,4 @@
-import "../component/home.css";
+import "../components/home.css";
 import Sliderimg from "../src/assets/sliderImage.png";
 import Sliderimgs from "../src/assets/Sale.webp";
 import Background from "../src/assets/Background-football.png";

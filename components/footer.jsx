@@ -2,7 +2,7 @@ import Iconfootball from "../src/assets/icon-football.png";
 import Line from "../src/assets/line.png";
 import Facebook from "../src/assets/facebook.png";
 import Instragram from "../src/assets/instragram.png";
-import '../component/footer.css'
+import '../components/footer.css'
 
 function footer() {
   return (
