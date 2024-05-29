@@ -1,0 +1,132 @@
+/*NavBar.css*/
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: rgb(255, 255, 255);
+  padding: 8px 36px 8px 36px;
+}
+
+.nav-links {
+  height: 4vh;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.home,
+.booking,
+.contact-us,
+.login,
+.register {
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px 20px;
+  color: black;
+}
+
+.home > a,
+.booking > a,
+.contact-us > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.home > a:hover,
+.booking > a:hover,
+.contact-us > a:hover {
+  color: green;
+  transition: 0.3s;
+}
+
+.nav-burger {
+  display: none;
+}
+
+.login > button > a {
+  color: white;
+  font-weight: bold;
+}
+
+.register > button > a {
+  color: white;
+  font-weight: bold;
+}
+
+@media (max-width: 960px) {
+  .nav-desk {
+    display: none;
+  }
+
+  .nav-links {
+    height: 4vh;
+  }
+
+  .nav-burger {
+    display: flex;
+    align-items: center;
+    height: 4vh;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .burgerMenu {
+    position: absolute;
+    left: 2%;
+    cursor: pointer;
+  }
+
+  .nav-links ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 3.4vh;
+    left: 0;
+    height: fit-content;
+    width: fit-content;
+    background: rgb(76, 76, 81);
+    border-radius: 8px;
+  }
+
+  .home > a,
+  .booking > a,
+  .contact-us > a {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: medium;
+    color: rgb(255, 255, 255);
+  }
+
+  .login > button {
+    background-color: rgb(76, 76, 81);
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+  }
+
+  .register > button {
+    background-color: rgb(76, 76, 81);
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+  }
+
+  .login > button > a {
+    color: white;
+    font-weight: 400;
+    font-size: medium;
+  }
+
+  .register > button > a {
+    color: white;
+    font-weight: 400;
+    font-size: medium;
+  }
+}

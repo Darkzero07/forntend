@@ -1,0 +1,44 @@
+.bodys {
+    /* background-image: url("src/assets/bg_footballstadium.png"); */
+    height: 526px;
+    background-size: cover;
+    justify-content: space-around;
+  }
+
+  .card-football{
+    background-color: white;
+    color: black;
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    margin-left: 12px;
+    line-height: 19px;
+  }
+
+  .booking-number{
+    display: flex;
+    margin-left: 12px;
+    border: 1;
+    border-color: #4ABB47;
+  }
+
+  .button {
+    width: 120px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #4abb47;
+    color: white;
+    font-size: 14px;
+    white-space: nowrap;
+
+  }
+
+  p {
+    font-size: 12px;
+    text-align: start;
+  }
+
+  h3{
+    font-size: 16px;
+    text-align: start;
+  }

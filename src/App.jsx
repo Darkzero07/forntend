@@ -1,19 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "../component/navbar";
-import Home from "../component/home";
-import Booking from "../component/booking";
-import Contact from "../component/contact";
-import Register from "../component/register";
-import Login from "../component/login";
+import NavBar from "../components/navbar/navbar";
+import Home from "../components/home";
+import Booking from "../components/booking";
+import Contact from "../components/contact";
+import Register from "../components/register";
+import Login from "../components/login";
 import "./App.css";
-import Footer from "../component/footer";
-import ImageUpload from "../component/imageUpload";
-
+import Footer from "../components/footer";
+import ImageUpload from "../components/imageUpload";
+import Payment from "../components/payment";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
+      <NavBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/booking" element={<Booking />} />
@@ -21,6 +21,7 @@ const App = () => {
         <Route exact path="/Register" element={<Register />} />
         <Route exact path="/Login" element={<Login />} />
         <Route exact path="/upload" element={<ImageUpload />} />
+        <Route exact path="/payment" element={<Payment />} />
       </Routes>
       <Footer />
     </BrowserRouter>
