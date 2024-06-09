@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Button, Table, message } from "antd";
+import { Button, Table, message, Form } from "antd";
 import axios from "../../config/axios";
 import "../styles/dashboard.css";
+import AddArenaModal from "../../services/addArena";
 
 const Dashboard = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [form] = Form.useForm();
 
   useEffect(() => {
     fetchBookings();
@@ -102,6 +105,34 @@ const Dashboard = () => {
     }
   };
 
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = async () => {
+    try {
+      const values = await form.validateFields();
+      const body = {
+        arena_name: values.arena_name,
+        arena_location: values.arena_location,
+        arena_players: values.arena_players,
+        arena_priceHour: values.arena_priceHour,
+      };
+      await axios.post("/arena/newArena", body);
+      message.success("Arena added successfully");
+      setIsModalVisible(false);
+      form.resetFields();
+    } catch (error) {
+      console.error("Error adding arena", error);
+      message.error("Failed to add arena");
+    }
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+    form.resetFields();
+  };
+
   const hasSelected = selectedRowKeys.length > 0;
 
   return (
@@ -148,6 +179,7 @@ const Dashboard = () => {
           {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
         </span>
       </div>
+
       <Table
         rowSelection={rowSelection}
         columns={columns}
@@ -156,6 +188,30 @@ const Dashboard = () => {
           key: index,
         }))}
         loading={loading}
+      />
+
+      <Button
+        type="primary"
+        onClick={showModal}
+        style={{
+          backgroundColor: "#1677ff",
+          color: "#ffffff",
+          fontWeight: 700,
+          justifyContent: "center",
+          marginTop: "16px",
+          marginLeft: "8px",
+          padding: "8px 8px  8px 8px",
+          height: "48px",
+        }}
+      >
+        Add Arena
+      </Button>
+
+      <AddArenaModal
+        isModalVisible={isModalVisible}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+        form={form}
       />
     </div>
   );

@@ -6,6 +6,10 @@
   background-color: rgb(53, 55, 54);
 }
 
+.booking > h1 {
+  text-align: center;
+}
+
 .booking-card {
   display: flex;
   flex-direction: row;

@@ -74,6 +74,7 @@ const TimePicker = () => {
       const response = await axios.post("/booking/newBooking", bookingData);
       console.log("Booking Successful:", response.data);
       const booking_id = response.data.id
+      // navigate(`/payment/${booking_id}`); 
       navigate(`/payment/${booking_id}`); 
     } catch (error) {
       console.error("Booking Failed:", error);
