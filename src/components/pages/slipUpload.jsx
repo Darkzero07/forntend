@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "../../config/axios";
 import "../styles/slipUpload.css";
 
 const ImageUpload = () => {
   const { booking_id } = useParams();
+  const navigate = useNavigate();
   const [file, setFile] = useState();
 
   const handleFile = (e) => {
@@ -26,13 +27,15 @@ const ImageUpload = () => {
       .post("/slip/upload", formData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+
+    navigate(`/bookingResult/${booking_id}`);
   };
 
   return (
     <div className="upload">
       <h2>Booking ID: {booking_id}</h2>
       <div className="upload-container">
-        <Link to="/upload">Upload Slip</Link>
+        <h2>Upload Slip</h2>
         <br />
         <input type="file" onChange={handleFile} />
         <br />

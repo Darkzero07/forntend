@@ -8,6 +8,7 @@ import LoginPage from "../components/pages/login";
 import ProfilePage from "../components/pages/profile";
 import DashboardPage from "../components/pages/dashboard";
 import TimePickerPage from "../components/pages/timepicker"
+import bookingResultPage from "../components/pages/bookingResult";
 
 
 const components = {
@@ -52,6 +53,10 @@ const components = {
     url: "/timepicker/:arena_id/:arena_priceHour",
     component: TimePickerPage,
   },
+  bookingResult: {
+    url: "/bookingresult/:booking_id",
+    component: bookingResultPage,
+  },
 };
 
 export default {
@@ -74,6 +79,7 @@ export default {
       components.slipUpload,
       components.profile,
       components.timePicker,
+      components.bookingResult,
     ],
     redirectRoute: "/profile",
   },
@@ -87,6 +93,7 @@ export default {
       components.profile,
       components.dashboard,
       components.timePicker,
+      components.bookingResult,
     ],
     redirectRoute: "/dashboard",
   },

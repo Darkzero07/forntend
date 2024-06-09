@@ -16,9 +16,13 @@
   padding: 48px 16px 16px 16px;
   box-shadow: 4px 6px 6px rgb(0, 0, 0);
 }
+.upload-container > h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
 
 input {
-  margin-top: 32px;
+  margin-top: 8px;
   border-radius: 4px;
   padding: 8px;
   font-size: large;
@@ -33,7 +37,7 @@ div > a {
 }
 
 .upload-container > button {
-  margin-top: 12%;
+  margin-top: 8%;
   font-weight: 600;
   color: rgb(255, 255, 255);
   background-color: rgb(15, 79, 151);
