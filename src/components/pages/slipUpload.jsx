@@ -1,28 +1,36 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import "./imageUpload.css";
-
-
+import { Link, useParams } from "react-router-dom";
+import axios from "../../config/axios";
+import "../styles/slipUpload.css";
 
 const ImageUpload = () => {
+  const { booking_id } = useParams();
   const [file, setFile] = useState();
 
   const handleFile = (e) => {
     setFile(e.target.files[0]);
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
+    if (!file) {
+      console.error("No file selected.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("image", file);
-    axios
-      .post("http://localhost:4000/upload", formData)
+    formData.append("booking_id", booking_id);
+    console.log("FormData:", formData);
+
+    await axios
+      .post("/slip/upload", formData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
 
   return (
     <div className="upload">
+      <h2>Booking ID: {booking_id}</h2>
       <div className="upload-container">
         <Link to="/upload">Upload Slip</Link>
         <br />

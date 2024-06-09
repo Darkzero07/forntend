@@ -1,10 +1,10 @@
-import Iconfootball from "../src/assets/icon-football.png";
-import Line from "../src/assets/line.png";
-import Facebook from "../src/assets/facebook.png";
-import Instragram from "../src/assets/instragram.png";
-import '../components/footer.css'
+import Iconfootball from "../../assets/icon-football.png";
+import Line from "../../assets/line.png";
+import Facebook from "../../assets/facebook.png";
+import Instragram from "../../assets/instragram.png";
+import '../navbar/footer.css'
 
-function footer() {
+function Footer() {
   return (
  
       <div className="footer-container">
@@ -22,7 +22,7 @@ function footer() {
         <div
           className="footer-socials"
         >
-          <h4>ติดตามเราได้ที่ | </h4>
+          {/* <h4>Follow | </h4> */}
           <div>
             <img src={Line} className="footer-social" />
             <img src={Facebook} className="footer-social" />
@@ -34,4 +34,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;

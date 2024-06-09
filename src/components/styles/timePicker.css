@@ -1,0 +1,73 @@
+.time {
+  width: 100vw;
+  height: 82vh;
+  margin: 0;
+  padding: 0;
+}
+.time > h1 {
+  text-align: center;
+}
+
+.time-slot {
+  width: 600px;
+  height: 260px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  left: 34.5%;
+  padding: 16px;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: rgb(49, 51, 50);
+}
+
+.time-button {
+  margin: 4px;
+}
+
+.time-button > button {
+    background-color: green;
+}
+
+.time-datepick {
+  padding: 0 0 24px 0px;
+  position: relative;
+  left: 42.5%;
+}
+
+.time-datepick > div {
+  width: 300px;
+  height: 54px;
+  justify-content: center;
+  /* background-color: aquamarine; */
+}
+
+.time > button {
+  position: relative;
+  left: 44.5%;
+  top: 5%;
+  width: 200px;
+  height: 56px;
+  font-size: 28px;
+  padding: 8px 16px 8px 16px;
+  background-color: rgb(46, 43, 209);
+}
+
+.time > .time-available {
+  width: fit-content;
+  position: relative;
+  top: 38%;
+  left: 75%;
+  font-size: 16px;
+  background-color: green;
+}
+
+.time > .time-not-available {
+  width: fit-content;
+  position: relative;
+  top: 38%;
+  left: 76%;
+  font-size: 16px;
+  background-color: red;
+}

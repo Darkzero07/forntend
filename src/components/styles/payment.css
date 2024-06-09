@@ -1,0 +1,35 @@
+.payment-card {
+  width: 100vw;
+  height: 82vh;
+  background-color: rgb(101, 105, 107);
+}
+
+.payment-qr {
+ width: fit-content;
+ height: fit-content;
+ display: flex;
+ flex-direction: column;
+ position: relative;
+ left: 38%;
+ top: 5%;
+}
+
+.payment-qr > IMG {
+ width: 400px;
+ height: fit-content;
+ border-radius: 12px;
+}
+
+.payment-card > button {
+  position: relative;
+  left: 43%;
+  top: 10%;
+  width: 200px;
+  height: 60px;
+  padding: 8px;
+  text-align: center;
+  font-size: x-large;
+  font-weight: 800;
+  /* background-color: rgb(2, 105, 41); */
+  
+}

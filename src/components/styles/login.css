@@ -1,0 +1,76 @@
+.login-form {
+  width: 100vw;
+  height: 82vh;
+  background-image: url("../src/assets/entrance.jpg");
+  background-size: 100% 100%;
+}
+
+.login-formbasic {
+  display: flex;
+  position: relative;
+  left: 35%;
+  top: 20%;
+  width: 430px;
+  height: 300px;
+  padding: 16px 16px 4px 4px;
+  text-align: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.94);
+  z-index: 100;
+}
+
+.login-label-user {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.login-label-password {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+svg {
+  color: green;
+  margin-left: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.login-button {
+  height: 2.4em;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 24px;
+  left: -18%;
+}
+.signup {
+  position: relative;
+  text-align: center;
+  /* background-color: aquamarine; */
+  z-index: 100;
+  width: fit-content;
+  height: 64px;
+  top: 12%;
+  left: 40.8%;
+}
+
+.signup > p {
+  position: relative;
+  width: 200px;
+  top: 20px;
+  margin: 0;
+  padding: 0;
+  color: rgb(0, 0, 0);
+  font-size: 11px;
+}
+
+.signup > a {
+  position: relative;
+  width: 100px;
+  top: 10px;
+  color: rgb(30, 0, 255);
+  font-size: 11px;
+  font-weight: 400;
+}

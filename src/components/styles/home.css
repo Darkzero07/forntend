@@ -1,6 +1,7 @@
 .body {
   background-image: url("src/assets/Background-football.png");
-  height: 526px;
+  width: 100vw;
+  height: 30vh;
   background-size: cover;
   justify-content: space-around;
 }
