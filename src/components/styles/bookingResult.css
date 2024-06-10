@@ -1,0 +1,6 @@
+.booking-result {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 82vh;
+}
