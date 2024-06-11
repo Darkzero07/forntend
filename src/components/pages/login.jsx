@@ -19,12 +19,11 @@ const Login = (props) => {
         console.log(result);
         localStorageService.setToken(result.data.access_token);
         const role = localStorageService.getRole();
-        // console.log(role);
         props.setRole(role);
 
         if (role === "admin") {
           navigate("/dashboard");
-        } else if (role === "user") {
+        } else if (role !== "guest") {
           navigate("/profile");
         } else {
           navigate("/register");

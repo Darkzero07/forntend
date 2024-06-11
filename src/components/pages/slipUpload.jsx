@@ -25,10 +25,11 @@ const ImageUpload = () => {
 
     await axios
       .post("/slip/upload", formData)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        navigate(`/bookingResult/${booking_id}`);
+      })
       .catch((err) => console.log(err));
-
-    navigate(`/bookingResult/${booking_id}`);
   };
 
   return (

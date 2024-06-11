@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { DatePicker, Space } from "antd";
+import { DatePicker, Space, notification } from "antd";
 import axios from "../../config/axios";
 import "../styles/timePicker.css";
+import localStorageService from "../../services/localStorageService";
+import useNotification from "antd/es/notification/useNotification";
 
 const TimePicker = () => {
   const { arena_id, arena_priceHour } = useParams();
@@ -27,6 +29,8 @@ const TimePicker = () => {
     { time_start: "21:00", time_end: "22:00" },
     { time_start: "22:00", time_end: "23:00" },
     { time_start: "23:00", time_end: "24:00" },
+    { time_start: "00:00", time_end: "01:00" },
+    { time_start: "01:00", time_end: "02:00" },
   ];
 
   useEffect(() => {
@@ -47,7 +51,7 @@ const TimePicker = () => {
   };
 
   const onChange = (date, dateString) => {
-    console.log(dateString);
+    // console.log(dateString);
     setSelectedDate(dateString);
   };
 
@@ -58,8 +62,19 @@ const TimePicker = () => {
   };
 
   const handleBooking = async (dateString) => {
+    const token = localStorageService.getToken();
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
+    if (!timeStart || !timeEnd) {
+      alert("Please select a timeslot");
+      return;
+    }
+
     const duration = parseInt(timeEnd.split(":")[0] - timeStart.split(":")[0]);
-    const totalPrice = (parseInt(arena_priceHour) * duration);
+    const totalPrice = parseInt(arena_priceHour) * duration;
     const bookingData = {
       arena_id,
       date: dateString,
@@ -73,9 +88,8 @@ const TimePicker = () => {
     try {
       const response = await axios.post("/booking/newBooking", bookingData);
       console.log("Booking Successful:", response.data);
-      const booking_id = response.data.id
-      // navigate(`/payment/${booking_id}`); 
-      navigate(`/payment/${booking_id}`); 
+      const booking_id = response.data.id;
+      navigate(`/payment/${booking_id}`);
     } catch (error) {
       console.error("Booking Failed:", error);
     }

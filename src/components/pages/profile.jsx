@@ -16,6 +16,9 @@ function Profile(props) {
       <div className="profile-welcome">
         <h1> Welcome</h1>
         <p>user: {jwtDecode(localStorageSrevice.getToken()).username}</p>
+        <Link to='/arenaBooking'>Booking</Link>
+        <br />
+        <br />
         <Link to='/dashboard'>Dashboard</Link>
         <br />
         <br />

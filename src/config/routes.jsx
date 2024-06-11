@@ -65,6 +65,7 @@ export default {
       components.login,
       components.register,
       components.home,
+      components.timePicker,
       components.arenaBooking,
       components.contact,
     ],

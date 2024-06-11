@@ -1,9 +1,12 @@
 import React from "react";
 import { Button, Checkbox, Form, Input, notification } from "antd";
-import axios from '../../config/axios'
+import axios from "../../config/axios";
 import "../styles/register.css";
+import { useNavigate } from "react-router-dom";
 
-const Register = (props) => {
+// const Register = (props) => {
+const Register = () => {
+  const navigate = useNavigate();
   const onFinish = (values) => {
     console.log("Success:", values);
     const body = {
@@ -20,7 +23,8 @@ const Register = (props) => {
         notification.success({
           message: `${values.firstname} register succes`,
         });
-        props.history.push("/login");
+        navigate("/login")
+        // props.history.push("/login");
       })
       .catch((err) => {
         notification.error({
@@ -147,6 +151,7 @@ const Register = (props) => {
               htmlType="submit"
             >
               Submit
+              
             </Button>
           </Form.Item>
         </Form>

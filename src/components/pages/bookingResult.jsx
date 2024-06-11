@@ -30,12 +30,13 @@ function bookingResult() {
       <h1>Congratulation!</h1>
       <span>
         Your booking is complete. If you need any further assistance or have
-        questions about your reservation, feel free to ask or contact us. Enjoy
-        your experience!
+        questions about your reservation, feel free to ask or{" "}
+        <Link to="/contact">contact us</Link>. Enjoy your experience!
       </span>
-      <h2>Your booking ID: {booking_id} </h2>
+
       {result.map((result) => (
-        <div key={result.id}>
+        <div className="booking-info" key={result.id}>
+          <p>Your booking ID: {booking_id} </p>
           <p>สนาม: {result.arena_id}</p>
           <p>วันที่: {result.date}</p>
           <p>

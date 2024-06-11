@@ -3,4 +3,19 @@
   flex-direction: column;
   width: 100vw;
   height: 82vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.booking-result > h1 {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.booking-result > span {
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.booking-info {
+  font-size: 24px;
 }
