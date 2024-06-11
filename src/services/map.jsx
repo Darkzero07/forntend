@@ -1,28 +1,41 @@
-// services/map.jsx
-import React from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import React from "react";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
-const containerStyle = {
-  width: '50%',
-  height: '600px'
+const libraries = ["places"];
+const mapContainerStyle = {
+  width: "50vw",
+  height: "60vh",
 };
-
 const center = {
-  lat: 13.748342467462374,
-  lng: 100.61907217693282
+  lat: 13.748342467462374, // default latitude
+  lng: 100.61907217693282, // default longitude
 };
 
 const Map = () => {
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: "AIzaSyCnmNn5ReMoCHFunsO73nqj7wjIwkYUwp0",
+    libraries,
+  });
+
+  if (loadError) {
+    return <div>Error loading maps</div>;
+  }
+
+  if (!isLoaded) {
+    return <div>Loading maps</div>;
+  }
+
   return (
-    <LoadScript googleMapsApiKey = "AIzaSyCHcXH7FXJgxLJYfvBcSouw7U9Lwy1CIew">
+    <div>
       <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
+        mapContainerStyle={mapContainerStyle}
         zoom={10}
+        center={center}
       >
+        <Marker position={center} />
       </GoogleMap>
-    </LoadScript>
-  )
-}
+    </div>
+  );
+};
 
 export default Map;

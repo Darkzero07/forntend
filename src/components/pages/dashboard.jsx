@@ -3,12 +3,17 @@ import { Button, Table, message, Form } from "antd";
 import axios from "../../config/axios";
 import "../styles/dashboard.css";
 import AddArenaModal from "../../services/addArena";
+import UpdateArenaModal from "../../services/updateArena";
+import UpdateBookingModal from "../../services/updateBooking";
 
 const Dashboard = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false);
+  const [isUpdateBookingModalVisible, setIsUpdateBookingModalVisible] =
+    useState(false);
   const [form] = Form.useForm();
 
   useEffect(() => {
@@ -109,7 +114,7 @@ const Dashboard = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = async () => {
+  const handleAddOk = async () => {
     try {
       const values = await form.validateFields();
       const body = {
@@ -133,7 +138,101 @@ const Dashboard = () => {
     form.resetFields();
   };
 
+  const handleDeleteArena = async () => {
+    setLoading(true);
+    const key = Object.values(selectedRowKeys);
+    try {
+      await axios.delete(`/arena/delete/${bookings[key].arena_id}`);
+      message.success("Selected arena deleted successfully");
+      fetchBookings();
+      setSelectedRowKeys([]);
+    } catch (error) {
+      console.error("Error deleting arena", error);
+      message.error("Failed to delete selected arena");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const showUpdateModal = () => {
+    if (selectedRowKeys.length === 1) {
+      setIsUpdateModalVisible(true);
+    } else {
+      message.error("Please select exactly one booking to update");
+    }
+  };
+
+  const handleUpdateOk = async () => {
+    const key = selectedRowKeys[0];
+    try {
+      const values = await form.validateFields();
+      const body = {
+        arena_name: values.arena_name,
+        arena_location: values.arena_location,
+        arena_players: values.arena_players,
+        arena_priceHour: values.arena_priceHour,
+      };
+      await axios.put(`/arena/updateArena/${bookings[key].arena_id}`, body);
+      message.success("Arena updated successfully");
+      setIsUpdateModalVisible(false);
+      form.resetFields();
+      fetchBookings();
+    } catch (error) {
+      console.error("Error updating arena", error);
+      message.error("Failed to update arena");
+    }
+  };
+
+  const handleUpdateCancel = () => {
+    setIsUpdateModalVisible(false);
+    form.resetFields();
+  };
+
   const hasSelected = selectedRowKeys.length > 0;
+
+  const showUpdateBookingModal = () => {
+    if (selectedRowKeys.length === 1) {
+      setIsUpdateBookingModalVisible(true);
+    } else {
+      message.error("Please select exactly one booking to update");
+    }
+  };
+
+  const handleUpdateBookingOk = async () => {
+    const key = selectedRowKeys[0];
+    console.log(bookings[key].id)
+    if (!bookings[key]) {
+      message.error("Selected booking not found");
+      return;
+    }
+    try {
+      const values = await form.validateFields();
+      const bookingBody = {
+        arena_id: values.arena_id,
+        date: values.date,
+        time_start: values.time_start,
+        time_end: values.time_end,
+        duration: values.duration,
+        total_price: values.total_price,
+      };
+      await axios.put(
+        `/booking/updateBooking/${bookings[key].id}`,
+        bookingBody
+      );
+      message.success("Booking updated successfully");
+      setIsUpdateBookingModalVisible(false);
+      form.resetFields();
+      fetchBookings();
+    } catch (error) {
+      console.error("Error updating booking", error);
+      message.error("Failed to update booking");
+    }
+  };
+
+  const handleUpdateBookingCancel = () => {
+    setIsUpdateBookingModalVisible(false);
+    form.resetFields();
+  };
 
   return (
     <div className="dashboard">
@@ -172,7 +271,7 @@ const Dashboard = () => {
 
         <span
           style={{
-            marginLeft: 32,
+            marginLeft: 16,
             color: "#ffffff",
           }}
         >
@@ -206,11 +305,72 @@ const Dashboard = () => {
       >
         Add Arena
       </Button>
-
       <AddArenaModal
         isModalVisible={isModalVisible}
-        handleOk={handleOk}
+        handleOk={handleAddOk}
         handleCancel={handleCancel}
+        form={form}
+      />
+
+      <Button
+        onClick={handleDeleteArena}
+        style={{
+          backgroundColor: "#ff0000",
+          color: "#ffffff",
+          fontWeight: 700,
+          justifyContent: "center",
+          marginTop: "16px",
+          marginLeft: "16px",
+          padding: "8px 8px  8px 8px",
+          height: "48px",
+        }}
+      >
+        Delete Arena
+      </Button>
+
+      <Button
+        type="primary"
+        onClick={showUpdateModal}
+        style={{
+          backgroundColor: "#1677ff",
+          color: "#ffffff",
+          fontWeight: 700,
+          justifyContent: "center",
+          marginTop: "16px",
+          marginLeft: "8px",
+          padding: "8px 8px  8px 8px",
+          height: "48px",
+        }}
+      >
+        Update Arena
+      </Button>
+      <UpdateArenaModal
+        isModalVisible={isUpdateModalVisible}
+        handleOk={handleUpdateOk}
+        handleCancel={handleUpdateCancel}
+        form={form}
+      />
+
+      <Button
+        type="primary"
+        onClick={showUpdateBookingModal}
+        style={{
+          backgroundColor: "#1677ff",
+          color: "#ffffff",
+          fontWeight: 700,
+          justifyContent: "center",
+          marginTop: "16px",
+          marginLeft: "8px",
+          padding: "8px 8px  8px 8px",
+          height: "48px",
+        }}
+      >
+        Update Booking
+      </Button>
+      <UpdateBookingModal
+        isModalVisible={isUpdateBookingModalVisible}
+        handleOk={handleUpdateBookingOk}
+        handleCancel={handleUpdateBookingCancel}
         form={form}
       />
     </div>

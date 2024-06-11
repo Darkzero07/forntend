@@ -37,6 +37,7 @@
 .contact-map {
   position: relative;
   width: 50vw;
+  padding: 8px;
 }
 
 .contact-data {
