@@ -37,7 +37,7 @@ const Home = () => {
             สนามฟุตบอลในร่มหญ้าเทียมแห่งแรกในย่านธุรกิจใจกลางเมืองเดินทางสะดวก
             เข้าออกได้จากซอยโปโลด้านถนนวิทยุ หรือ ซอยปลูกจิต ถนนพระรามสี่
           </h2>
-          <Link to="/login" ><button className="button">จอง</button></Link>
+          <Link to="/arenaBooking" ><button className="button">จอง</button></Link>
         </div>
         <div style={{ width: "688px", height: "400px" }}>
           <Carousel {...carouselSettings}>

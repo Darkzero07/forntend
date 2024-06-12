@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import { jwtDecode } from "jwt-decode";
-import localStorageSrevice from "../../services/localStorageService";
+import localStorageService from "../../services/localStorageService";
 import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
@@ -14,8 +14,8 @@ const NavBar = () => {
     setClick(!click);
   };
 
-  useEffect(() => {
-    const token = localStorageSrevice.getToken();
+  const fetchUserData = () => {
+    const token = localStorageService.getToken();
     if (token && typeof token === "string") {
       try {
         const decodedToken = jwtDecode(token);
@@ -24,6 +24,10 @@ const NavBar = () => {
         console.error("Invalid token:", error);
       }
     }
+  };
+
+  useEffect(() => {
+    fetchUserData();
   }, []);
 
   const handleClickProfile = () => {
