@@ -30,9 +30,9 @@
 }
 
 .profile-welcome > button {
- margin-left: 160px;
+ margin-left: 120px;
  font-weight: 600;
- width: auto;
+ width: 130px;
  height: auto;
 }
 
@@ -44,7 +44,7 @@
 
 .profile-welcome > a {
   position: absolute;
-  left: 39%;
+  left: 38.5%;
   font-size: larger;
   text-align: center;
   padding: 2px;

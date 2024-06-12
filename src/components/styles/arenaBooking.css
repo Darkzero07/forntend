@@ -3,7 +3,9 @@
   height: 82vh;
   margin: 0;
   padding: 0;
-  background-color: rgb(53, 55, 54);
+  background-image: url("../../assets/bg_footballstadium.png");
+  background-size: cover;
+  /* background-color: rgb(53, 55, 54); */
 }
 
 .booking > h1 {

@@ -5,6 +5,7 @@ import "../styles/dashboard.css";
 import AddArenaModal from "../../services/addArena";
 import UpdateArenaModal from "../../services/updateArena";
 import UpdateBookingModal from "../../services/updateBooking";
+import DeleteOutlined from "@ant-design/icons";
 
 const Dashboard = () => {
   const [bookings, setBookings] = useState([]);
@@ -94,10 +95,6 @@ const Dashboard = () => {
     setLoading(true);
     const key = Object.values(selectedRowKeys);
     try {
-      // for (let key of selectedRowKeys) {
-      //   await axios.delete(`/booking/deleteBooking/${bookings[key].id}`);
-      // }
-
       await axios.delete(`/booking/deleteBooking/${bookings[key].id}`);
       message.success("Selected bookings deleted successfully");
       fetchBookings();
@@ -200,7 +197,7 @@ const Dashboard = () => {
 
   const handleUpdateBookingOk = async () => {
     const key = selectedRowKeys[0];
-    console.log(bookings[key].id)
+    console.log(bookings[key].id);
     if (!bookings[key]) {
       message.error("Selected booking not found");
       return;
@@ -289,90 +286,92 @@ const Dashboard = () => {
         loading={loading}
       />
 
-      <Button
-        type="primary"
-        onClick={showModal}
-        style={{
-          backgroundColor: "#1677ff",
-          color: "#ffffff",
-          fontWeight: 700,
-          justifyContent: "center",
-          marginTop: "16px",
-          marginLeft: "8px",
-          padding: "8px 8px  8px 8px",
-          height: "48px",
-        }}
-      >
-        Add Arena
-      </Button>
-      <AddArenaModal
-        isModalVisible={isModalVisible}
-        handleOk={handleAddOk}
-        handleCancel={handleCancel}
-        form={form}
-      />
+      <div className="button-controller">
+        <Button
+          type="primary"
+          onClick={showModal}
+          style={{
+            backgroundColor: "#4ABB47",
+            color: "#ffffff",
+            fontWeight: 700,
+            justifyContent: "center",
+            marginTop: "16px",
+            marginLeft: "8px",
+            padding: "8px 8px  8px 8px",
+            height: "48px",
+          }}
+        >
+          Add Arena
+        </Button>
+        <AddArenaModal
+          isModalVisible={isModalVisible}
+          handleOk={handleAddOk}
+          handleCancel={handleCancel}
+          form={form}
+        />
 
-      <Button
-        onClick={handleDeleteArena}
-        style={{
-          backgroundColor: "#ff0000",
-          color: "#ffffff",
-          fontWeight: 700,
-          justifyContent: "center",
-          marginTop: "16px",
-          marginLeft: "16px",
-          padding: "8px 8px  8px 8px",
-          height: "48px",
-        }}
-      >
-        Delete Arena
-      </Button>
+        <Button
+          type="primary"
+          onClick={showUpdateModal}
+          style={{
+            backgroundColor: "#1677ff",
+            color: "#ffffff",
+            fontWeight: 700,
+            justifyContent: "center",
+            marginTop: "16px",
+            marginLeft: "8px",
+            padding: "8px 8px  8px 8px",
+            height: "48px",
+          }}
+        >
+          Update Arena
+        </Button>
+        <UpdateArenaModal
+          isModalVisible={isUpdateModalVisible}
+          handleOk={handleUpdateOk}
+          handleCancel={handleUpdateCancel}
+          form={form}
+        />
 
-      <Button
-        type="primary"
-        onClick={showUpdateModal}
-        style={{
-          backgroundColor: "#1677ff",
-          color: "#ffffff",
-          fontWeight: 700,
-          justifyContent: "center",
-          marginTop: "16px",
-          marginLeft: "8px",
-          padding: "8px 8px  8px 8px",
-          height: "48px",
-        }}
-      >
-        Update Arena
-      </Button>
-      <UpdateArenaModal
-        isModalVisible={isUpdateModalVisible}
-        handleOk={handleUpdateOk}
-        handleCancel={handleUpdateCancel}
-        form={form}
-      />
+        <Button
+          type="primary"
+          onClick={showUpdateBookingModal}
+          style={{
+            backgroundColor: "#1677ff",
+            color: "#ffffff",
+            fontWeight: 700,
+            justifyContent: "center",
+            marginTop: "16px",
+            marginLeft: "8px",
+            padding: "8px 8px  8px 8px",
+            height: "48px",
+          }}
+        >
+          Update Booking
+        </Button>
+        <UpdateBookingModal
+          isModalVisible={isUpdateBookingModalVisible}
+          handleOk={handleUpdateBookingOk}
+          handleCancel={handleUpdateBookingCancel}
+          form={form}
+        />
 
-      <Button
-        type="primary"
-        onClick={showUpdateBookingModal}
-        style={{
-          backgroundColor: "#1677ff",
-          color: "#ffffff",
-          fontWeight: 700,
-          justifyContent: "center",
-          marginTop: "16px",
-          marginLeft: "8px",
-          padding: "8px 8px  8px 8px",
-          height: "48px",
-        }}
-      >
-        Update Booking
-      </Button>
-      <UpdateBookingModal
-        isModalVisible={isUpdateBookingModalVisible}
-        handleOk={handleUpdateBookingOk}
-        handleCancel={handleUpdateBookingCancel}
-        form={form}
-      />
+        <Button
+          onClick={handleDeleteArena}
+          style={{
+            backgroundColor: "#ff0000",
+            color: "#ffffff",
+            fontWeight: 700,
+            justifyContent: "center",
+            marginTop: "16px",
+            marginLeft: "16px",
+            padding: "8px 8px  8px 8px",
+            height: "48px",
+          }}
+        >
+          Delete Arena
+        </Button>
+      </div>
     </div>
   );
 };

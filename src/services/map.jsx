@@ -7,13 +7,13 @@ const mapContainerStyle = {
   height: "60vh",
 };
 const center = {
-  lat: 13.748342467462374, // default latitude
-  lng: 100.61907217693282, // default longitude
-};
+  lat: 13.748342467462374,
+  lng: 100.61907217693282, 
+}
 
 const Map = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCnmNn5ReMoCHFunsO73nqj7wjIwkYUwp0",
+    googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY,
     libraries,
   });
 

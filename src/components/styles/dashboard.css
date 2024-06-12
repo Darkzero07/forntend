@@ -15,3 +15,10 @@
   align-content: center;
 } 
 
+.button-controller {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 65%;
+  justify-content: center;
+}
