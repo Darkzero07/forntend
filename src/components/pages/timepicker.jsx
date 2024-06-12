@@ -55,6 +55,8 @@ const TimePicker = () => {
   };
 
   const handleTimePicker = (time_satrt, time_end) => {
+    alert(`เลือกเวลา ${time_satrt} ถึงเวลา ${time_end}`)
+
     setTimeStart(time_satrt);
     setTimeEnd(time_end);
   };
@@ -80,7 +82,7 @@ const TimePicker = () => {
       time_end: timeEnd,
       duration: duration,
       total_price: totalPrice,
-      status: status,
+      status: "pending",
     };
     console.log(bookingData);
 
