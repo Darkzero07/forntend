@@ -13,9 +13,23 @@ const Dashboard = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false);
-  const [isUpdateBookingModalVisible, setIsUpdateBookingModalVisible] =
-    useState(false);
+  const [isUpdateBookingModalVisible, setIsUpdateBookingModalVisible] = useState(false);
   const [form] = Form.useForm();
+
+  const start = () => {
+    setLoading(true);
+    fetchBookings();
+    setSelectedRowKeys([]);
+  };
+
+  const onSelectChange = (newSelectedRowKeys) => {
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
 
   useEffect(() => {
     fetchBookings();
@@ -23,15 +37,47 @@ const Dashboard = () => {
 
   const fetchBookings = async () => {
     setLoading(true);
+
     try {
-      const response = await axios.get("/booking/getAllBooked");
-      setBookings(response.data);
+      const responseBooking = await axios.get("/booking/getAllBooked");
+      const responeUser = await axios.get("/user/getAllUser");
+      const bookingsData = responseBooking.data;
+      const usersData = responeUser.data;
+      const combinedData = bookingsData.map((booking) => {
+        const user = usersData.find((user) => user.id === booking.user_id);
+        return {
+          ...booking,
+          username: user?.username,
+          firstname: user?.firstname,
+          phone: user?.phone,
+          email: user?.email,
+        };
+      });
+
+      setBookings(combinedData);
+
+      for (const booking of combinedData) {
+        if (booking.status === "") {
+          const responseSlip = await axios.get(`/slip/getSlip/${booking.id}`);
+          const pathSlip = responseSlip.data[0]?.slip_path;
+          if (pathSlip) {
+            const bookingStatus = { status: pathSlip };
+            await axios.put(
+              `/booking/updateBooking/${booking.id}`,
+              bookingStatus
+            );
+          }
+        }
+      }
+
       setLoading(false);
     } catch (error) {
       console.error("Failed to fetch bookings", error);
       setLoading(false);
     }
   };
+
+  const key = Object.values(selectedRowKeys);
 
   const columns = [
     {
@@ -70,30 +116,39 @@ const Dashboard = () => {
       key: "total_price",
     },
     {
+      title: "Booking Satatus",
+      dataIndex: "status",
+      key: "status",
+    },
+    {
       title: "User ID",
       dataIndex: "user_id",
       key: "user_id",
     },
+    {
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
+    },
+    {
+      title: "Firstname",
+      dataIndex: "firstname",
+      key: "firstname",
+    },
+    {
+      title: "Phone number",
+      dataIndex: "phone",
+      key: "phone",
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+    },
   ];
-
-  const start = () => {
-    setLoading(true);
-    fetchBookings();
-    setSelectedRowKeys([]);
-  };
-
-  const onSelectChange = (newSelectedRowKeys) => {
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
-
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
 
   const handleDelete = async () => {
     setLoading(true);
-    const key = Object.values(selectedRowKeys);
     try {
       await axios.delete(`/booking/deleteBooking/${bookings[key].id}`);
       message.success("Selected bookings deleted successfully");
@@ -137,7 +192,6 @@ const Dashboard = () => {
 
   const handleDeleteArena = async () => {
     setLoading(true);
-    const key = Object.values(selectedRowKeys);
     try {
       await axios.delete(`/arena/delete/${bookings[key].arena_id}`);
       message.success("Selected arena deleted successfully");
@@ -160,7 +214,6 @@ const Dashboard = () => {
   };
 
   const handleUpdateOk = async () => {
-    const key = selectedRowKeys[0];
     try {
       const values = await form.validateFields();
       const body = {
@@ -196,7 +249,6 @@ const Dashboard = () => {
   };
 
   const handleUpdateBookingOk = async () => {
-    const key = selectedRowKeys[0];
     console.log(bookings[key].id);
     if (!bookings[key]) {
       message.error("Selected booking not found");
@@ -211,6 +263,7 @@ const Dashboard = () => {
         time_end: values.time_end,
         duration: values.duration,
         total_price: values.total_price,
+        status: values.status,
       };
       await axios.put(
         `/booking/updateBooking/${bookings[key].id}`,

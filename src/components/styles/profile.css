@@ -44,8 +44,17 @@
 
 .profile-welcome > a {
   position: absolute;
-  left: 38.5%;
   font-size: larger;
   text-align: center;
   padding: 2px;
+}
+
+.booking-link {
+  position: relative;
+  left: 32%;
+}
+
+.dashboard-link {
+  position: relative;
+  left: 37%;
 }

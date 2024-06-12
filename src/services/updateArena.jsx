@@ -15,7 +15,7 @@ const UpdateArenaModal = ({ isModalVisible, handleOk, handleCancel, form }) => {
         <Form.Item
           name="arena_name"
           label="Arena Name"
-          rules={[{ required: true, message: "Please enter arena name" }]}
+          // rules={[{ required: true, message: "Please enter arena name" }]}
         >
           <Input />
         </Form.Item>
@@ -23,7 +23,7 @@ const UpdateArenaModal = ({ isModalVisible, handleOk, handleCancel, form }) => {
         <Form.Item
           name="arena_location"
           label="Arena Location"
-          rules={[{ required: true, message: "Please enter arena location" }]}
+          // rules={[{ required: true, message: "Please enter arena location" }]}
         >
           <Input />
         </Form.Item>
@@ -31,9 +31,7 @@ const UpdateArenaModal = ({ isModalVisible, handleOk, handleCancel, form }) => {
         <Form.Item
           name="arena_players"
           label="Number of Players"
-          rules={[
-            { required: true, message: "Please enter number of players" },
-          ]}
+          // rules={[ { required: true, message: "Please enter number of players" }, ]}
         >
           <InputNumber min={1} max={100} style={{ width: "100%" }} />
         </Form.Item>
@@ -41,7 +39,7 @@ const UpdateArenaModal = ({ isModalVisible, handleOk, handleCancel, form }) => {
         <Form.Item
           name="arena_priceHour"
           label="Price per Hour"
-          rules={[{ required: true, message: "Please enter price per hour" }]}
+          // rules={[{ required: true, message: "Please enter price per hour" }]}
         >
           <InputNumber min={0} step={0.01} style={{ width: "100%" }} />
         </Form.Item>

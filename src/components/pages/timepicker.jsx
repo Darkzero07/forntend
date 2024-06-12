@@ -82,6 +82,7 @@ const TimePicker = () => {
       time_end: timeEnd,
       duration: duration,
       total_price: totalPrice,
+      status: status,
     };
     console.log(bookingData);
 

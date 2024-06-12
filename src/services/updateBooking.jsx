@@ -65,6 +65,14 @@ const UpdateBookingModal = ({ isModalVisible, handleOk, handleCancel, form }) =>
         >
           <InputNumber min={0} step={0.01} style={{ width: "100%" }} />
         </Form.Item>
+
+        <Form.Item
+          name="status"
+          label="Booking Status"
+          rules={[{ required: true, message: "Wait to confirm or Complete" }]}
+        >
+          <Input min={0} step={0.01} style={{ width: "100%" }} />
+        </Form.Item>
       </Form>
     </Modal>
   );
