@@ -10,7 +10,6 @@ import DashboardPage from "../components/pages/dashboard";
 import TimePickerPage from "../components/pages/timepicker"
 import bookingResultPage from "../components/pages/bookingResult";
 
-
 const components = {
   home: {
     url: "/",

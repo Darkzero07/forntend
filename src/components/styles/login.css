@@ -8,11 +8,12 @@
 .login-formbasic {
   display: flex;
   position: relative;
-  left: 35%;
+  left: 39.5%;
   top: 20%;
-  width: 430px;
-  height: 300px;
+  width: 440px;
+  height: 380px;
   padding: 16px 16px 4px 4px;
+  justify-content: center;
   text-align: center;
   align-items: center;
   border-radius: 8px;
@@ -48,12 +49,13 @@ svg {
 .signup {
   position: relative;
   text-align: center;
+  
   /* background-color: aquamarine; */
   z-index: 100;
   width: fit-content;
   height: 64px;
   top: 12%;
-  left: 40.8%;
+  left: 46%;
 }
 
 .signup > p {

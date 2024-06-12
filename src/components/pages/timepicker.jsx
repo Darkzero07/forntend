@@ -51,14 +51,12 @@ const TimePicker = () => {
   };
 
   const onChange = (date, dateString) => {
-    // console.log(dateString);
     setSelectedDate(dateString);
   };
 
   const handleTimePicker = (time_satrt, time_end) => {
     setTimeStart(time_satrt);
     setTimeEnd(time_end);
-    // console.log(parseInt(time_satrt.split(":")[0]));
   };
 
   const handleBooking = async (dateString) => {

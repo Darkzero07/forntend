@@ -1,7 +1,12 @@
-import React from 'react';
-import { Modal, Form, Input, InputNumber } from 'antd';
+import React from "react";
+import { Modal, Form, Input, InputNumber } from "antd";
 
-const UpdateBookingModal = ({ isModalVisible, handleOk, handleCancel, form }) => {
+const UpdateBookingModal = ({
+  isModalVisible,
+  handleOk,
+  handleCancel,
+  form,
+}) => {
   return (
     <Modal
       title="Update Booking"
@@ -12,57 +17,27 @@ const UpdateBookingModal = ({ isModalVisible, handleOk, handleCancel, form }) =>
       cancelText="Cancel"
     >
       <Form form={form} layout="vertical" name="update_booking_form">
-        <Form.Item
-          name="arena_id"
-          label="Arena ID"
-          // rules={[{ required: true, message: "Please enter arena id" }]}
-        >
+        <Form.Item name="arena_id" label="Arena ID">
           <Input />
         </Form.Item>
 
-        <Form.Item
-          name="date"
-          label="Date"
-          // rules={[{ required: true, message: "Please enter date" }]}
-        >
+        <Form.Item name="date" label="Date">
           <Input />
         </Form.Item>
 
-        <Form.Item
-          name="time_start"
-          label="Time_Start"
-          rules={[
-            // { required: true, message: "Please enter time_satrt" },
-          ]}
-        >
+        <Form.Item name="time_start" label="Time_Start">
           <Input />
         </Form.Item>
 
-        <Form.Item
-          name="time_end"
-          label="Time_End"
-          rules={[
-            // { required: true, message: "Please enter time_end" },
-          ]}
-        >
+        <Form.Item name="time_end" label="Time_End">
           <Input />
         </Form.Item>
 
-        <Form.Item
-          name="duration"
-          label="Duration"
-          rules={[
-            // { required: true, message: "Please enter duration" },
-          ]}
-        >
+        <Form.Item name="duration" label="Duration">
           <InputNumber min={1} max={100} style={{ width: "100%" }} />
         </Form.Item>
 
-        <Form.Item
-          name="total_price"
-          label="Total_price"
-          // rules={[{ required: true, message: "Please enter total price" }]}
-        >
+        <Form.Item name="total_price" label="Total_price">
           <InputNumber min={0} step={0.01} style={{ width: "100%" }} />
         </Form.Item>
 

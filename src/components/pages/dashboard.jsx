@@ -5,7 +5,7 @@ import "../styles/dashboard.css";
 import AddArenaModal from "../../services/addArena";
 import UpdateArenaModal from "../../services/updateArena";
 import UpdateBookingModal from "../../services/updateBooking";
-import DeleteOutlined from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 
 const Dashboard = () => {
   const [bookings, setBookings] = useState([]);
@@ -13,7 +13,8 @@ const Dashboard = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false);
-  const [isUpdateBookingModalVisible, setIsUpdateBookingModalVisible] = useState(false);
+  const [isUpdateBookingModalVisible, setIsUpdateBookingModalVisible] =
+    useState(false);
   const [form] = Form.useForm();
 
   const start = () => {
@@ -40,44 +41,46 @@ const Dashboard = () => {
 
     try {
       const responseBooking = await axios.get("/booking/getAllBooked");
-      const responeUser = await axios.get("/user/getAllUser");
+      const responseUser = await axios.get("/user/getAllUser");
       const bookingsData = responseBooking.data;
-      const usersData = responeUser.data;
-      const combinedData = bookingsData.map((booking) => {
-        const user = usersData.find((user) => user.id === booking.user_id);
-        return {
-          ...booking,
-          username: user?.username,
-          firstname: user?.firstname,
-          phone: user?.phone,
-          email: user?.email,
-        };
-      });
+      const usersData = responseUser.data;
 
-      setBookings(combinedData);
+      const updatedBookingsData = await Promise.all(
+        bookingsData.map(async (booking) => {
+          let pathSlip = booking.status;
 
-      for (const booking of combinedData) {
-        if (booking.status === "") {
-          const responseSlip = await axios.get(`/slip/getSlip/${booking.id}`);
-          const pathSlip = responseSlip.data[0]?.slip_path;
-          if (pathSlip) {
-            const bookingStatus = { status: pathSlip };
-            await axios.put(
-              `/booking/updateBooking/${booking.id}`,
-              bookingStatus
-            );
+          if (booking.status === "") {
+            const responseSlip = await axios.get(`/slip/getSlip/${booking.id}`);
+            pathSlip = responseSlip.data[0]?.slip_path || "";
+            if (pathSlip) {
+              const bookingStatus = { status: pathSlip };
+              await axios.put(
+                `/booking/updateBooking/${booking.id}`,
+                bookingStatus
+              );
+            }
           }
-        }
-      }
 
+          const user = usersData.find((user) => user.id === booking.user_id);
+
+          return {
+            ...booking,
+            username: user?.username,
+            firstname: user?.firstname,
+            phone: user?.phone,
+            email: user?.email,
+            status: booking?.status,
+          };
+        })
+      );
+
+      setBookings(updatedBookingsData);
       setLoading(false);
     } catch (error) {
       console.error("Failed to fetch bookings", error);
       setLoading(false);
     }
   };
-
-  const key = Object.values(selectedRowKeys);
 
   const columns = [
     {
@@ -116,7 +119,7 @@ const Dashboard = () => {
       key: "total_price",
     },
     {
-      title: "Booking Satatus",
+      title: "Booking Status",
       dataIndex: "status",
       key: "status",
     },
@@ -150,7 +153,9 @@ const Dashboard = () => {
   const handleDelete = async () => {
     setLoading(true);
     try {
-      await axios.delete(`/booking/deleteBooking/${bookings[key].id}`);
+      await axios.delete(
+        `/booking/deleteBooking/${bookings[selectedRowKeys[0]].id}`
+      );
       message.success("Selected bookings deleted successfully");
       fetchBookings();
       setSelectedRowKeys([]);
@@ -179,6 +184,7 @@ const Dashboard = () => {
       message.success("Arena added successfully");
       setIsModalVisible(false);
       form.resetFields();
+      fetchBookings();
     } catch (error) {
       console.error("Error adding arena", error);
       message.error("Failed to add arena");
@@ -193,7 +199,9 @@ const Dashboard = () => {
   const handleDeleteArena = async () => {
     setLoading(true);
     try {
-      await axios.delete(`/arena/delete/${bookings[key].arena_id}`);
+      await axios.delete(
+        `/arena/delete/${bookings[selectedRowKeys[0]].arena_id}`
+      );
       message.success("Selected arena deleted successfully");
       fetchBookings();
       setSelectedRowKeys([]);
@@ -222,7 +230,10 @@ const Dashboard = () => {
         arena_players: values.arena_players,
         arena_priceHour: values.arena_priceHour,
       };
-      await axios.put(`/arena/updateArena/${bookings[key].arena_id}`, body);
+      await axios.put(
+        `/arena/updateArena/${bookings[selectedRowKeys[0]].arena_id}`,
+        body
+      );
       message.success("Arena updated successfully");
       setIsUpdateModalVisible(false);
       form.resetFields();
@@ -249,8 +260,7 @@ const Dashboard = () => {
   };
 
   const handleUpdateBookingOk = async () => {
-    console.log(bookings[key].id);
-    if (!bookings[key]) {
+    if (!bookings[selectedRowKeys[0]]) {
       message.error("Selected booking not found");
       return;
     }
@@ -266,7 +276,7 @@ const Dashboard = () => {
         status: values.status,
       };
       await axios.put(
-        `/booking/updateBooking/${bookings[key].id}`,
+        `/booking/updateBooking/${bookings[selectedRowKeys[0]].id}`,
         bookingBody
       );
       message.success("Booking updated successfully");
@@ -293,7 +303,7 @@ const Dashboard = () => {
           disabled={!hasSelected}
           loading={loading}
           style={{
-            backgroundColor: "#1677ff",
+            backgroundColor: "#1677f",
             color: "#ffffff",
             marginLeft: "16px",
             fontWeight: 700,
