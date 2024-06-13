@@ -1,7 +1,7 @@
 // contact.jsx
 import React from "react";
 import "../styles/contact.css";
-import Map from "../../services/map";
+import Map from "../map";
 
 const Contact = () => {
   return (

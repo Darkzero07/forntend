@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Button, Table, message, Form } from "antd";
+import { Button, message, Form } from "antd";
 import axios from "../../config/axios";
 import "../styles/dashboard.css";
-import AddArenaModal from "../../services/addArena";
-import UpdateArenaModal from "../../services/updateArena";
-import UpdateBookingModal from "../../services/updateBooking";
-import { DeleteOutlined } from "@ant-design/icons";
+import AddArenaModal from "../addArenaModal";
+import UpdateArenaModal from "../updateArenaModal";
+import UpdateBookingModal from "../updateBookingModal";
+import BookingTable from "../bookingTable";
 
 const Dashboard = () => {
   const [bookings, setBookings] = useState([]);
@@ -17,21 +17,6 @@ const Dashboard = () => {
     useState(false);
   const [form] = Form.useForm();
 
-  const start = () => {
-    setLoading(true);
-    fetchBookings();
-    setSelectedRowKeys([]);
-  };
-
-  const onSelectChange = (newSelectedRowKeys) => {
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
-
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
-
   useEffect(() => {
     fetchBookings();
   }, []);
@@ -42,8 +27,10 @@ const Dashboard = () => {
     try {
       const responseBooking = await axios.get("/booking/getAllBooked");
       const responseUser = await axios.get("/user/getAllUser");
+      const responseArena = await axios.get("/arena/getArenas");
       const bookingsData = responseBooking.data;
       const usersData = responseUser.data;
+      const arenaData = responseArena.data;
 
       const updatedBookingsData = await Promise.all(
         bookingsData.map(async (booking) => {
@@ -62,6 +49,9 @@ const Dashboard = () => {
           }
 
           const user = usersData.find((user) => user.id === booking.user_id);
+          const arena = arenaData.find(
+            (arena) => arena.id === booking.arena_id
+          );
 
           return {
             ...booking,
@@ -70,98 +60,14 @@ const Dashboard = () => {
             phone: user?.phone,
             email: user?.email,
             status: booking?.status,
+            arena_name: arena?.arena_name,
           };
         })
       );
 
       setBookings(updatedBookingsData);
-      setLoading(false);
     } catch (error) {
       console.error("Failed to fetch bookings", error);
-      setLoading(false);
-    }
-  };
-
-  const columns = [
-    {
-      title: "Booking_ID",
-      dataIndex: "id",
-      key: "id",
-    },
-    {
-      title: "Arena ID",
-      dataIndex: "arena_id",
-      key: "arena_id",
-    },
-    {
-      title: "Date",
-      dataIndex: "date",
-      key: "date",
-    },
-    {
-      title: "Start Time",
-      dataIndex: "time_start",
-      key: "time_start",
-    },
-    {
-      title: "End Time",
-      dataIndex: "time_end",
-      key: "time_end",
-    },
-    {
-      title: "Duration",
-      dataIndex: "duration",
-      key: "duration",
-    },
-    {
-      title: "Total Price",
-      dataIndex: "total_price",
-      key: "total_price",
-    },
-    {
-      title: "Booking Status",
-      dataIndex: "status",
-      key: "status",
-    },
-    {
-      title: "User ID",
-      dataIndex: "user_id",
-      key: "user_id",
-    },
-    {
-      title: "Username",
-      dataIndex: "username",
-      key: "username",
-    },
-    {
-      title: "Firstname",
-      dataIndex: "firstname",
-      key: "firstname",
-    },
-    {
-      title: "Phone number",
-      dataIndex: "phone",
-      key: "phone",
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-      key: "email",
-    },
-  ];
-
-  const handleDelete = async () => {
-    setLoading(true);
-    try {
-      await axios.delete(
-        `/booking/deleteBooking/${bookings[selectedRowKeys[0]].id}`
-      );
-      message.success("Selected bookings deleted successfully");
-      fetchBookings();
-      setSelectedRowKeys([]);
-    } catch (error) {
-      console.error("Error deleting booking", error);
-      message.error("Failed to delete selected bookings");
     } finally {
       setLoading(false);
     }
@@ -194,23 +100,6 @@ const Dashboard = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
     form.resetFields();
-  };
-
-  const handleDeleteArena = async () => {
-    setLoading(true);
-    try {
-      await axios.delete(
-        `/arena/delete/${bookings[selectedRowKeys[0]].arena_id}`
-      );
-      message.success("Selected arena deleted successfully");
-      fetchBookings();
-      setSelectedRowKeys([]);
-    } catch (error) {
-      console.error("Error deleting arena", error);
-      message.error("Failed to delete selected arena");
-    } finally {
-      setLoading(false);
-    }
   };
 
   const showUpdateModal = () => {
@@ -248,8 +137,6 @@ const Dashboard = () => {
     setIsUpdateModalVisible(false);
     form.resetFields();
   };
-
-  const hasSelected = selectedRowKeys.length > 0;
 
   const showUpdateBookingModal = () => {
     if (selectedRowKeys.length === 1) {
@@ -294,59 +181,31 @@ const Dashboard = () => {
     form.resetFields();
   };
 
+  const handleDeleteArena = async () => {
+    setLoading(true);
+    try {
+      await axios.delete(
+        `/arena/delete/${bookings[selectedRowKeys[0]].arena_id}`
+      );
+      message.success("Selected arena deleted successfully");
+      fetchBookings();
+      setSelectedRowKeys([]);
+    } catch (error) {
+      console.error("Error deleting arena", error);
+      message.error("Failed to delete selected arena");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="dashboard">
-      <div className="dashboard-button">
-        <Button
-          type="primary"
-          onClick={start}
-          disabled={!hasSelected}
-          loading={loading}
-          style={{
-            backgroundColor: "#1677f",
-            color: "#ffffff",
-            marginLeft: "16px",
-            fontWeight: 700,
-            justifyContent: "center",
-          }}
-        >
-          Reload
-        </Button>
-
-        <Button
-          type="primary"
-          onClick={handleDelete}
-          disabled={!hasSelected}
-          loading={loading}
-          style={{
-            backgroundColor: "#ff0000",
-            color: "#ffffff",
-            marginLeft: "16px",
-            fontWeight: 700,
-            justifyContent: "center",
-          }}
-        >
-          Delete
-        </Button>
-
-        <span
-          style={{
-            marginLeft: 16,
-            color: "#ffffff",
-          }}
-        >
-          {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
-        </span>
-      </div>
-
-      <Table
-        rowSelection={rowSelection}
-        columns={columns}
-        dataSource={bookings.map((booking, index) => ({
-          ...booking,
-          key: index,
-        }))}
+      <BookingTable
+        bookings={bookings}
         loading={loading}
+        selectedRowKeys={selectedRowKeys}
+        setSelectedRowKeys={setSelectedRowKeys}
+        fetchBookings={fetchBookings}
       />
 
       <div className="button-controller">
@@ -419,7 +278,7 @@ const Dashboard = () => {
           form={form}
         />
 
-        <Button
+        {/* <Button
           onClick={handleDeleteArena}
           style={{
             backgroundColor: "#ff0000",
@@ -433,7 +292,7 @@ const Dashboard = () => {
           }}
         >
           Delete Arena
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

@@ -55,7 +55,7 @@ const TimePicker = () => {
   };
 
   const handleTimePicker = (time_satrt, time_end) => {
-    alert(`เลือกเวลา ${time_satrt} ถึงเวลา ${time_end}`)
+    alert(`เลือกเวลา ${time_satrt} ถึงเวลา ${time_end}`);
 
     setTimeStart(time_satrt);
     setTimeEnd(time_end);
