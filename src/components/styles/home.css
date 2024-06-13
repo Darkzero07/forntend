@@ -1,0 +1,89 @@
+.body {
+  background-image: url("src/assets/Background-football.png");
+  width: 100vw;
+  height: 30vh;
+  background-size: cover;
+  justify-content: space-around;
+}
+
+.first-section {
+  display: flex;
+  padding: 16px;
+  padding-top: 70px;
+  align-items: center;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+h2 {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 24px;
+  width: 511px;
+}
+
+.button {
+  width: 160px;
+  height: 49px;
+  border-radius: 4px;
+  background-color: #4abb47;
+  color: black;
+  margin-top: 16px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: start;
+}
+
+.second-section {
+  display: flex;
+  justify-content: start;
+  padding: 16px;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  width: 688px;
+  height: 400px;
+}
+
+.background-activity {
+  background-color: #242923;
+  height: 331px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-activity{
+    position: relative;
+    color: white;
+}
+
+.img-activity{
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    margin-top: 24px;
+    margin-left: 24px;
+}
+
+.text-activity{
+      font-size: 14px;
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+}
+
+.slick-arrow .slick-next  {
+  font-size: 72px !important;
+  color: red;
+}
+

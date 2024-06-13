@@ -1,0 +1,57 @@
+.booking {
+  width: 100vw;
+  height: 82vh;
+  margin: 0;
+  padding: 0;
+  background-image: url("../../assets/bg_footballstadium.png");
+  background-size: cover;
+  /* background-color: rgb(53, 55, 54); */
+}
+
+.booking > h1 {
+  text-align: center;
+}
+
+.booking-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: space-around;
+  padding: 8px;
+  
+}
+
+.arena-card > div  {
+ border-radius: 0 0 8px 8px;
+ margin: -4px 0 12px 0;
+ padding: 0;
+ }
+
+.arena-card > div button {
+  background-color: #4ABB47;
+  font-size: 18px;
+  font-weight: 600;
+  /* color: black; */
+}
+
+.arena-card > div.ant-card > div.ant-card-body {
+  padding: 0 4px 16px 24px;
+}
+
+.arena-card > div.ant-card > div.ant-card-body> p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.arena-card >div  div.ant-card-head {
+  background-color: aquamarine;
+  border-radius: 0;
+  font-weight: 700;
+  
+}
+
+
+
+
+

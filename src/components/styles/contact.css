@@ -1,0 +1,110 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  background-color: rgb(76, 82, 90);
+  width: 100vw;
+  height: 82vh;
+}
+
+.contact-text {
+  width: 100vw;
+  height: 20vh;
+  background-image: url("../src/assets/bg.jpg");
+  background-size: cover;
+  background-position: 30%;
+  font-size: larger;
+  font-weight: bolder;
+  color: black;
+}
+
+.contact-text > h1 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 45%;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: row;
+  /* background-color: aquamarine; */
+  width: 100vw;
+  height: 62vh;
+  padding: 8px;
+}
+
+.contact-map {
+  position: relative;
+  width: 50vw;
+  padding: 8px;
+}
+
+.contact-data {
+  position: relative;
+  width: 40vw;
+}
+
+.contact-phone {
+  display: flex;
+  flex-direction: row;
+  margin-left: 160px;
+  margin-top: 32px;
+}
+
+.contact-phone > img {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-phone > span {
+  margin-left: 16px;
+}
+
+.contact-line {
+  display: flex;
+  flex-direction: row;
+  margin-left: 160px;
+  margin-top: 32px;
+}
+
+.contact-line > img {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-line > span {
+  margin-left: 16px;
+}
+
+.contact-ig {
+  display: flex;
+  flex-direction: row;
+  margin-left: 160px;
+  margin-top: 32px;
+}
+
+.contact-ig > img {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-ig > span {
+  margin-left: 16px;
+}
+
+.contact-fb {
+  display: flex;
+  flex-direction: row;
+  margin-left: 160px;
+  margin-top: 32px;
+}
+
+.contact-fb > img {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-fb > span {
+  margin-left: 16px;
+}
