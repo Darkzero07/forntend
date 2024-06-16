@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/profile.css";
 import { jwtDecode } from "jwt-decode";
 import localStorageService from "../../services/localStorageService";
@@ -31,17 +31,25 @@ function Profile(props) {
         <h1> Welcome</h1>
         <p>user: {jwtDecode(localStorageService.getToken()).username}</p>
         {isAdmin && (
-          <>
-            <Link className="dashboard-link" to='/dashboard'>Dashboard</Link>
+          <div className="profile-dashboard">
+            <Link className="dashboard-link" to="/dashboard">
+              Dashboard
+            </Link>
             <br />
             <br />
-          </>
+          </div>
         )}
-        <Link className="booking-link" to='/arenaBooking'>Booking Arena</Link>
+        <div className="profile-booking">
+          <Link className="booking-link" to="/arenaBooking">
+            Booking Arena
+          </Link>
+        </div>
         <br />
         <br />
         <br />
-        <Button onClick={logout}>Logout</Button>
+        <div className="profile-logout">
+          <Button onClick={logout}>Logout</Button>
+        </div>
       </div>
     </div>
   );

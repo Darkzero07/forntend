@@ -4,7 +4,7 @@ import axios from "../../config/axios";
 import "../styles/slipUpload.css";
 
 const ImageUpload = () => {
-  const { booking_id } = useParams();
+  const { booking_id, fileName } = useParams();
   const navigate = useNavigate();
   const [file, setFile] = useState();
 
@@ -27,7 +27,7 @@ const ImageUpload = () => {
       .post("/slip/upload", formData)
       .then((res) => {
         console.log(res);
-        navigate(`/bookingResult/${booking_id}`);
+        navigate(`/bookingResult/${booking_id}/`);
       })
       .catch((err) => console.log(err));
   };
@@ -36,11 +36,13 @@ const ImageUpload = () => {
     <div className="upload">
       <h2>Booking ID: {booking_id}</h2>
       <div className="upload-container">
-        <h2>Upload Slip</h2>
-        <br />
-        <input type="file" onChange={handleFile} />
-        <br />
-        <button onClick={handleUpload}>Upload</button>
+        <div className="upload-slip">
+          <h2>Upload Slip</h2>
+          <br />
+          <input type="file" onChange={handleFile} />
+          <br />
+          <button onClick={handleUpload}>Upload</button>
+        </div>
       </div>
     </div>
   );

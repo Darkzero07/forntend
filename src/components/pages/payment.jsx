@@ -7,19 +7,18 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const handleUpload = () => {
-     navigate(`/slipUpload/${booking_id}`);
-
-  }
+    navigate(`/slipUpload/${booking_id}`);
+  };
 
   return (
     <div className="payment-card">
-       <h2>Booking ID: {booking_id}</h2>
+      <h2>Booking ID: {booking_id}</h2>
       <div className="payment-qr">
         <img src="../src/assets/promtpay.png" alt="qr" />
       </div>
-      <button onClick={() => handleUpload()}>
-       อัพโหลดสลิป
-      </button>
+      <div className="payment-upload">
+        <button onClick={() => handleUpload()}>อัพโหลดสลิป</button>
+      </div>
     </div>
   );
 };

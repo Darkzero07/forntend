@@ -23,7 +23,6 @@ const ArenaBooking = () => {
   };
 
   const handleCardClick = (arena_id, arena_priceHour) => {
-    // console.log(arena_id, arena_priceHour)
     navigate(`/timepicker/${arena_id}/${arena_priceHour}`);
   };
 

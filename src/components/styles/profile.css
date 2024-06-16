@@ -2,59 +2,104 @@
   width: 100vw;
   height: 82vh;
   background-color: rgb(4, 162, 109);
-  
+  padding: 16px;
 }
+
 .profile-welcome {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  left: 38%;
-  width: 400px;
+  width: 100vw;
   height: 400px;
-  
-  padding: 32px;
-  /* background-color: blue; */
-  
+  align-items: center;
 }
 
 .profile-welcome > h1 {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  font-weight:700 ;
+  position: relative;
+  font-size: 64px;
+  font-weight: 700;
+  font-family: "Times New Roman", Times, serif;
 }
+
 .profile-welcome > p {
-  margin: 16px;
-  padding: 0;
-  text-align: center;
-  font-size: large;
+  margin-top: -1%;
+  font-size: 36px;
+  font-weight: 600;
+  color: blue;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.profile-dashboard > a {
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: underline;
+  color: darkorchid;
+  
+}
+
+.profile-booking > a {
+  font-size: 30px;
+  font-weight: 600;
+  color:pink;
+  text-decoration: underline;
+}
+
+.profile-logout > button {
+  padding: 4px;
+  width: 150px;
+  height: fit-content;
+  font-size: 24px;
   font-weight: 600;
 }
 
-.profile-welcome > button {
- margin-left: 120px;
- font-weight: 600;
- width: 130px;
- height: auto;
-}
+@media (max-width: 960px) {
+  .profile-body {
+    width: 100vw;
+    height: 82vh;
+    background-color: rgb(4, 162, 109);
+    padding: 4px;
+  }
 
-.profile-welcome > button >span {
-  font-size: larger;
-  text-align: center;
-  padding: 2px;
-}
+  .profile-welcome {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100vw;
+    height: 400px;
+    align-items: center;
+    margin-top: 35%;
+  }
 
-.profile-welcome > a {
-  position: absolute;
-  font-size: larger;
-  text-align: center;
-  padding: 2px;
-}
+  .profile-welcome > h1 {
+    position: relative;
+    font-size: 48px;
+    font-weight: 700;
+    font-family: "Times New Roman", Times, serif;
+  }
 
-.booking-link {
-  position: relative;
-  left: 32%;
-}
+  .profile-welcome > p {
+    margin-top: -1%;
+    font-size: 28px;
+    font-weight: 600;
+    color: blue;
+    font-family: "Times New Roman", Times, serif;
+  }
 
-.dashboard-link {
-  position: relative;
-  left: 37%;
+  .profile-dashboard > a {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .profile-booking > a {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .profile-logout > button {
+    padding: 4px;
+    width: 150px;
+    height: fit-content;
+    font-size: 24px;
+    font-weight: 600;
+  }
 }

@@ -109,24 +109,30 @@ const TimePicker = () => {
         <DatePicker onChange={onChange} />
       </div>
       <div className="time-slot">
-        {times.map((slot, index) => (
-          <div className="time-button" key={index}>
-            <button
-              onClick={() => handleTimePicker(slot.time_start, slot.time_end)}
-              style={{
-                backgroundColor: isSlotBooked(slot.time_start, slot.time_end)
-                  ? "red"
-                  : "",
-              }}
-            >
-              {slot.time_start} - {slot.time_end}
-            </button>
-          </div>
-        ))}
+        <div className="time-select">
+          {times.map((slot, index) => (
+            <div className="time-button" key={index}>
+              <button
+                onClick={() => handleTimePicker(slot.time_start, slot.time_end)}
+                style={{
+                  backgroundColor: isSlotBooked(slot.time_start, slot.time_end)
+                    ? "red"
+                    : "",
+                }}
+              >
+                {slot.time_start} - {slot.time_end}
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-      <button onClick={() => handleBooking(selectedDate)}>จอง</button>
-      <button className="time-available">Available</button>
-      <button className="time-not-available">Not Available</button>
+      <div className="time-booking-button">
+        <button onClick={() => handleBooking(selectedDate)}>จอง</button>
+      </div>
+      <div className="time-status">
+        <button className="time-available">Available</button>
+        <button className="time-not-available">Not Available</button>
+      </div>
     </div>
   );
 };

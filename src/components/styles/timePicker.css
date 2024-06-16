@@ -3,22 +3,35 @@
   height: 82vh;
   margin: 0;
   padding: 0;
-  background-image: url()
+  background-image: url("../../assets/bg_footballstadium.png");
+  background-size: 100% 100%;
 }
 
 .time > h1 {
   text-align: center;
+  margin: 0;
+  padding: 8px 0 16px 0;
+  background-color: #035a00;
 }
 
 .time-slot {
-  width: 600px;
-  height: 260px;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
-  left: 34.5%;
-  padding: 16px;
+  top: 2%;
+  border-radius: 8px;
+  justify-content: center;
+}
+
+.time-select {
+  width: 840px;
+  height: 440px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 64px;
   border-radius: 8px;
   justify-content: center;
   background-color: rgb(49, 51, 50);
@@ -29,13 +42,15 @@
 }
 
 .time-button > button {
-    background-color: green;
+  background-color: green;
+  font-size: 24px;
 }
 
 .time-datepick {
+  text-align: center;
   padding: 0 0 24px 0px;
   position: relative;
-  left: 42.5%;
+  top: 2%;
 }
 
 .time-datepick > div {
@@ -45,10 +60,18 @@
   /* background-color: aquamarine; */
 }
 
-.time > button {
+.time-booking-button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   position: relative;
-  left: 44.5%;
-  top: 5%;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 2%;
+}
+
+.time-booking-button > button {
+  position: relative;
   width: 200px;
   height: 56px;
   font-size: 28px;
@@ -56,20 +79,87 @@
   background-color: rgb(46, 43, 209);
 }
 
-.time > .time-available {
-  width: fit-content;
+.time-status {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   position: relative;
-  top: 30%;
-  left: 75%;
+  justify-content: center;
+  top: 5%;
+  padding: 16px;
+  background-color: black;
+}
+
+.time-available {
+  width: fit-content;
   font-size: 16px;
   background-color: green;
 }
 
-.time > .time-not-available {
+.time-not-available {
   width: fit-content;
-  position: relative;
-  top: 30%;
-  left: 76%;
+  margin: 0 0 0 16px;
   font-size: 16px;
   background-color: red;
+}
+
+@media (max-width: 960px) {
+  .time {
+    width: 100vw;
+    height: 82vh;
+    margin: 0;
+    padding: 0;
+    background-image: url("../../assets/bg_footballstadium.png");
+    background-size: cover;
+    overflow-y: scroll;
+  }
+
+  .time-slot {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    top: 10%;
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+    justify-content: center;
+  }
+
+  .time-select {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
+    margin: 4px;
+    padding: 4px;
+    border-radius: 8px;
+    justify-content: center;
+    background-color: rgb(49, 51, 50);
+  }
+
+ .time-booking-button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 15%;
+}
+
+  .time-status {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    top: 15%;
+    padding: 16px;
+    background-color: black;
+  }
 }

@@ -6,27 +6,46 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
+  padding: 24px;
 }
 
 .upload-container {
-  background-color: rgb(45, 199, 223);
-  opacity: 80%;
+  display: flex;
+  position: relative;
   border-radius: 16px;
-  height: 240px;
-  padding: 48px 16px 16px 16px;
-  box-shadow: 4px 6px 6px rgb(0, 0, 0);
-}
-.upload-container > h2 {
-  font-size: 28px;
-  font-weight: 700;
+  width: 100vw;
+  height: auto;
+  padding: 16px;
+  justify-content: center;
 }
 
-input {
+.upload > h2 {
+  font-size: 32px;
+}
+
+.upload-slip {
+  background-color: aliceblue;
+  width: 640px;
+  height: 480px;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.upload-slip > h2 {
+  margin-top: 10%;
+  margin-left: 10%;
+  font-size: 32px;
+  font-weight: 800;
+  color: black;
+}
+
+.upload-slip > input {
   margin-top: 8px;
   border-radius: 4px;
   padding: 8px;
-  font-size: large;
-  font-weight: 700;
+  color: black;
+  font-size: 28px;
+  font-weight: 400;
   border: 0.1px solid rgb(202, 205, 202);
 }
 
@@ -36,10 +55,73 @@ div > a {
   font-weight: 700;
 }
 
-.upload-container > button {
-  margin-top: 8%;
+.upload-slip > button {
+  margin-top: 10%;
+  font-size: 24px;
   font-weight: 600;
   color: rgb(255, 255, 255);
   background-color: rgb(15, 79, 151);
-  /* box-shadow: 4px 4px 4px rgb(0, 0, 2); */
+}
+
+@media (max-width: 960px) {
+  .upload {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 82vh;
+    background-color: aliceblue;
+  }
+
+  .upload-container {
+    display: flex;
+    position: relative;
+    top: -25%;
+    border-radius: 16px;
+    width: 100vw;
+    height: auto;
+    padding: 24px;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .upload-slip {
+    background-color: aliceblue;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .upload-slip > h2 {
+    margin-top: 10%;
+    margin-left: -32%;
+    font-size: 32px;
+    font-weight: 800;
+    color: black;
+  }
+
+  .upload-slip > input {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    border-radius: 4px;
+    padding: 8px;
+    color: black;
+    font-size: 24px;
+    font-weight: 400;
+    border: 0.1px solid rgb(202, 205, 202);
+  }
+
+  .upload-slip > button {
+    margin-top: 10%;
+    margin-left: -70%;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    background-color: rgb(15, 79, 151);
+  }
 }

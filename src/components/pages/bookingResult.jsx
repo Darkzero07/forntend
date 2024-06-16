@@ -45,6 +45,7 @@ function bookingResult() {
           <p>ราคา: {result.total_price}</p>
         </div>
       ))}
+      <Link to="/">CLOSE</Link>
     </div>
   );
 }

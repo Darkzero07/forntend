@@ -91,6 +91,10 @@ const Login = (props) => {
           >
             <Button className="login-button" type="primary" htmlType="submit">
               Submit
+              <p >Don't have account?</p>
+              <Link to="/register">
+                <span>Sign Up</span>
+              </Link>
             </Button>
           </Form.Item>
         </Form>

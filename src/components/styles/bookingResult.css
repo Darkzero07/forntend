@@ -8,14 +8,54 @@
 }
 
 .booking-result > h1 {
-  font-family: 'Times New Roman', Times, serif;
+  margin-top: -2%;
+  font-size: 96px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .booking-result > span {
-  font-size: 28px;
+  margin-top: -3%;
+  font-size: 32px;
+  padding: 64px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.booking-info {
-  font-size: 24px;
+.booking-info > p {
+  margin-top: -8px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.booking-result > a {
+  margin-top: 4%;
+  font-size: 26px;
+  font-weight: 600;
+  color: rgb(15, 7, 255);
+}
+
+@media (max-width: 960px) {
+  .booking-result {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 82vh;
+    margin-top: 8px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .booking-result > h1 {
+    font-size: 48px;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .booking-result > span {
+    font-size: 28px;
+    padding: 64px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .booking-info > p {
+    font-size: 24px;
+  }
 }
