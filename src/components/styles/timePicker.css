@@ -5,6 +5,7 @@
   padding: 0;
   background-image: url("../../assets/bg_footballstadium.png");
   background-size: 100% 100%;
+  overflow-x: auto;
 }
 
 .time > h1 {
@@ -27,17 +28,18 @@
 
 .time-select {
   width: 880px;
-  height: 440px;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 64px;
+  padding: 16px;
   border-radius: 8px;
   justify-content: center;
   background-color: rgb(49, 51, 50);
 }
 
 .time-button {
+  width: 24%;
   margin: 4px;
 }
 
@@ -67,7 +69,7 @@
   position: relative;
   justify-content: center;
   width: 100vw;
-  margin-top: 2%;
+  margin-top: 7%;
 }
 
 .time-booking-button > button {
