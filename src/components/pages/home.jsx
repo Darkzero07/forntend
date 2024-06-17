@@ -3,8 +3,6 @@ import Sliderimg from "../../assets/sliderImage.png";
 import Sliderimgs from "../../assets/Sale.webp";
 import Background from "../../assets/Background-football.png";
 import { Carousel } from "antd";
-import PrevArrow2 from "../../config/prevArrow2";
-import NextArrow2 from "../../config/nextArrow2";
 import { Link } from "react-router-dom";
 
 
@@ -24,8 +22,8 @@ const Home = () => {
     draggable: true,
     dotPosition: "top",
     arrows: true,
-    prevArrow: <PrevArrow2 slideCount={images.length} />,
-    nextArrow: <NextArrow2 slideCount={images.length} />,
+    // prevArrow: <PrevArrow2 slideCount={images.length} />,
+    // nextArrow: <NextArrow2 slideCount={images.length} />,
   };
 
   return (
@@ -39,7 +37,7 @@ const Home = () => {
           </h2>
           <Link to="/arenaBooking" ><button className="button">จอง</button></Link>
         </div>
-        <div style={{ width: "688px", height: "400px" }}>
+        <div className="carousel">
           <Carousel {...carouselSettings}>
             {images.map((src, index) => (
               <div key={index}>

@@ -1,7 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .body {
   background-image: url("src/assets/Background-football.png");
   width: 100vw;
-  height: 30vh;
+  height: 50vh;
   background-size: cover;
   justify-content: space-around;
 }
@@ -9,7 +15,7 @@
 .first-section {
   display: flex;
   padding: 16px;
-  padding-top: 70px;
+  padding-top: 60px;
   align-items: center;
 }
 
@@ -34,6 +40,12 @@ h2 {
   color: black;
   margin-top: 16px;
 }
+
+.carousel {
+  width: 688px;
+  height: 400px;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -61,29 +73,77 @@ h2 {
   justify-content: space-evenly;
 }
 
-.card-activity{
-    position: relative;
-    color: white;
+.card-activity {
+  position: relative;
+  color: white;
 }
 
-.img-activity{
-    width: 400px;
-    height: 200px;
-    border-radius: 10px;
+.img-activity {
+  width: 400px;
+  height: 200px;
+  border-radius: 10px;
+  margin-top: 24px;
+  margin-left: 24px;
+}
+
+.text-activity {
+  font-size: 14px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+@media only screen and (max-width: 960px) {
+  
+  
+  .body {
+    background-image: url("src/assets/Background-football.png");
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+  }
+
+  .first-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    order: 3;
+    margin-top: 12px;
+  }
+
+  .carousel  {
+    order: 0;
+  }
+
+  .content h1{
     margin-top: 24px;
-    margin-left: 24px;
-}
+  }
 
-.text-activity{
-      font-size: 14px;
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-}
+  .content h2  {
+    margin-top: 24px;
+    order: 4;
+  }
 
-.slick-arrow .slick-next  {
-  font-size: 72px !important;
-  color: red;
-}
+  .content button{
+    order: 6;
+  }
 
+  .carousel {
+    width: 800px;
+    height: 500px;
+  }
+  
+}
