@@ -26,7 +26,7 @@
 }
 
 .time-select {
-  width: 840px;
+  width: 880px;
   height: 440px;
   display: flex;
   flex-direction: row;
@@ -85,7 +85,7 @@
   flex-wrap: wrap;
   position: relative;
   justify-content: center;
-  top: 5%;
+  top: 8%;
   padding: 16px;
   background-color: black;
 }
@@ -142,15 +142,20 @@
     background-color: rgb(49, 51, 50);
   }
 
- .time-booking-button {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  position: relative;
-  justify-content: center;
-  width: 100vw;
-  margin-top: 15%;
-}
+  .time-booking-button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 25%;
+  }
+
+  .time-button > button {
+    background-color: green;
+    font-size: 18px;
+  }
 
   .time-status {
     display: flex;

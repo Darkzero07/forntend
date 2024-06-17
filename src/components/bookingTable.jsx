@@ -197,7 +197,7 @@ const BookingTable = ({
           {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
         </span>
       </div>
-      <Table
+      <Table 
         rowSelection={rowSelection}
         columns={columns}
         dataSource={bookings.map((booking, index) => ({

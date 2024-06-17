@@ -1,7 +1,20 @@
 .payment-card {
   width: 100vw;
   height: 82vh;
-  background-color: rgb(101, 105, 107);
+  /* background-color: rgb(101, 105, 107); */
+   background-image: url("../../assets/blocks-fletcher-hGlBGfql5Kc-unsplash.jpg");
+  background-size: 100% 100%;
+}
+
+.payment-card > h2 {
+  position: relative;
+  width: 100vw;
+  color: black;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  padding: 96px 0 0 0;
+  text-align: center;
 }
 
 .payment-qr {

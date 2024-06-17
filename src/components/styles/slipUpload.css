@@ -7,6 +7,9 @@
   display: flex;
   flex-direction: column;
   padding: 24px;
+    background-image: url("../../assets/blocks-fletcher-hGlBGfql5Kc-unsplash.jpg");
+  background-size: 100% 100%;
+
 }
 
 .upload-container {
@@ -20,7 +23,14 @@
 }
 
 .upload > h2 {
-  font-size: 32px;
+  position: relative;
+  width: 100vw;
+  color: black;
+  font-size: 24px;
+  font-weight: 600;
+  margin: -15% 0 3% 0;
+  padding: 96px 0 0 0;
+  text-align: center;
 }
 
 .upload-slip {
