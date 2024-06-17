@@ -2,7 +2,9 @@
   width: 100vw;
   height: 82vh;
   background-color: rgb(78, 81, 81);
+  /* background-color: rgb(24, 181, 84); */
   padding: 8px 0 0 0;
+  overflow: scroll;
 }
 
 .dashboard-button {
@@ -13,12 +15,21 @@
   padding: 0 0 16px 0;
   left: 72%;
   align-content: center;
-} 
+}
 
 .button-controller {
   display: flex;
   flex-direction: row;
-  position: fixed;
-  bottom: 12%;
-  left: 39%;
+  position: relative;
+  justify-content: center;
+}
+
+
+@media (max-width: 960px) {
+  .dashboard {
+    width: 100vw;
+    height: 82vh;
+    background-color: rgb(255, 255, 255);
+    padding: 8px 0 0 0;
+  }
 }

@@ -13,6 +13,7 @@ const TimePicker = () => {
   const [timeStart, setTimeStart] = useState(null);
   const [timeEnd, setTimeEnd] = useState(null);
   const [bookedSlots, setBookedSlots] = useState([]);
+  const [bookingConfirm, setBookingConfirm] = useState(false);
 
   const times = [
     { time_start: "10:00", time_end: "11:00" },
@@ -55,10 +56,15 @@ const TimePicker = () => {
   };
 
   const handleTimePicker = (time_satrt, time_end) => {
-    alert(`เลือกเวลา ${time_satrt} ถึงเวลา ${time_end}`);
-
-    setTimeStart(time_satrt);
-    setTimeEnd(time_end);
+    if (!selectedDate) {
+      alert("please select Date");
+    } else {
+      setTimeStart(time_satrt);
+      setTimeEnd(time_end);
+      alert(
+        `ต้องการจองสนามวันที่ ${selectedDate} เวลา ${time_satrt} ถึง ${time_end}`
+      );
+    }
   };
 
   const handleBooking = async (dateString) => {
@@ -84,12 +90,12 @@ const TimePicker = () => {
       total_price: totalPrice,
       status: "pending",
     };
-    console.log(bookingData);
 
     try {
       const response = await axios.post("/booking/newBooking", bookingData);
       console.log("Booking Successful:", response.data);
       const booking_id = response.data.id;
+      setBookingConfirm(true);
       navigate(`/payment/${booking_id}`);
     } catch (error) {
       console.error("Booking Failed:", error);
@@ -109,24 +115,30 @@ const TimePicker = () => {
         <DatePicker onChange={onChange} />
       </div>
       <div className="time-slot">
-        {times.map((slot, index) => (
-          <div className="time-button" key={index}>
-            <button
-              onClick={() => handleTimePicker(slot.time_start, slot.time_end)}
-              style={{
-                backgroundColor: isSlotBooked(slot.time_start, slot.time_end)
-                  ? "red"
-                  : "",
-              }}
-            >
-              {slot.time_start} - {slot.time_end}
-            </button>
-          </div>
-        ))}
+        <div className="time-select">
+          {times.map((slot, index) => (
+            <div className="time-button" key={index}>
+              <button
+                onClick={() => handleTimePicker(slot.time_start, slot.time_end)}
+                style={{
+                  backgroundColor: isSlotBooked(slot.time_start, slot.time_end)
+                    ? "red"
+                    : "",
+                }}
+              >
+                {slot.time_start} - {slot.time_end}
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-      <button onClick={() => handleBooking(selectedDate)}>จอง</button>
-      <button className="time-available">Available</button>
-      <button className="time-not-available">Not Available</button>
+      <div className="time-booking-button">
+        <button onClick={() => handleBooking(selectedDate)}>จอง</button>
+      </div>
+      <div className="time-status">
+        <button className="time-available">Available</button>
+        <button className="time-not-available">Not Available</button>
+      </div>
     </div>
   );
 };

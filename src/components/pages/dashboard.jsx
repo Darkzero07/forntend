@@ -13,8 +13,7 @@ const Dashboard = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false);
-  const [isUpdateBookingModalVisible, setIsUpdateBookingModalVisible] =
-    useState(false);
+  const [isUpdateBookingModalVisible, setIsUpdateBookingModalVisible] = useState(false);
   const [form] = Form.useForm();
 
   useEffect(() => {
@@ -36,9 +35,9 @@ const Dashboard = () => {
         bookingsData.map(async (booking) => {
           let pathSlip = booking.status;
 
-          if (booking.status === "") {
+          if (booking.status === "pending") {
             const responseSlip = await axios.get(`/slip/getSlip/${booking.id}`);
-            pathSlip = responseSlip.data[0]?.slip_path || "";
+            pathSlip = responseSlip.data[0]?.slip_path ;
             if (pathSlip) {
               const bookingStatus = { status: pathSlip };
               await axios.put(
@@ -102,7 +101,7 @@ const Dashboard = () => {
     form.resetFields();
   };
 
-  const showUpdateModal = () => {
+  const showUpdateArenaModal = () => {
     if (selectedRowKeys.length === 1) {
       setIsUpdateModalVisible(true);
     } else {
@@ -110,7 +109,7 @@ const Dashboard = () => {
     }
   };
 
-  const handleUpdateOk = async () => {
+  const handleUpdateArenaOk = async () => {
     try {
       const values = await form.validateFields();
       const body = {
@@ -133,7 +132,7 @@ const Dashboard = () => {
     }
   };
 
-  const handleUpdateCancel = () => {
+  const handleUpdateArenaCancel = () => {
     setIsUpdateModalVisible(false);
     form.resetFields();
   };
@@ -181,22 +180,24 @@ const Dashboard = () => {
     form.resetFields();
   };
 
-  const handleDeleteArena = async () => {
-    setLoading(true);
-    try {
-      await axios.delete(
-        `/arena/delete/${bookings[selectedRowKeys[0]].arena_id}`
-      );
-      message.success("Selected arena deleted successfully");
-      fetchBookings();
-      setSelectedRowKeys([]);
-    } catch (error) {
-      console.error("Error deleting arena", error);
-      message.error("Failed to delete selected arena");
-    } finally {
-      setLoading(false);
-    }
-  };
+  // const handleDeleteArena = async () => {
+  //   setLoading(true);
+  //   try {
+  //     await axios.delete(
+  //       `/arena/delete/${bookings[selectedRowKeys[0]].arena_id}`
+  //     );
+  //     message.success("Selected arena deleted successfully");
+  //     fetchBookings();
+  //     setSelectedRowKeys([]);
+  //   } catch (error) {
+  //     console.error("Error deleting arena", error);
+  //     message.error("Failed to delete selected arena");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+   const hasSelected = selectedRowKeys.length > 0;
 
   return (
     <div className="dashboard">
@@ -234,7 +235,7 @@ const Dashboard = () => {
 
         <Button
           type="primary"
-          onClick={showUpdateModal}
+          onClick={showUpdateArenaModal}
           style={{
             backgroundColor: "#1677ff",
             color: "#ffffff",
@@ -250,8 +251,8 @@ const Dashboard = () => {
         </Button>
         <UpdateArenaModal
           isModalVisible={isUpdateModalVisible}
-          handleOk={handleUpdateOk}
-          handleCancel={handleUpdateCancel}
+          handleOk={handleUpdateArenaOk}
+          handleCancel={handleUpdateArenaCancel}
           form={form}
         />
 

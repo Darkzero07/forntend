@@ -6,7 +6,7 @@
 }
 
 .register-formbasic {
- display: flex;
+  display: flex;
   position: relative;
   left: 36%;
   top: 10%;
@@ -64,4 +64,40 @@ svg {
   font-weight: 500;
   margin-top: 24px;
   left: -18%;
+}
+
+@media (max-width: 960px) {
+  .register-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 82vh;
+    background-image: none;
+  }
+
+  .register-formbasic {
+    left: 0%;
+    top: 0;
+    width: 100%;
+    height: 98%;
+    padding: 16px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 0px;
+    background-color: none;
+  }
+
+  .register-button {
+    position: relative;
+    justify-content: center;
+    height: 2.4em;
+    font-size: 1.2rem;
+    font-weight: 500;
+    top: auto;
+    left: auto;
+  }
 }

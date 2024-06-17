@@ -1,28 +1,51 @@
 .payment-card {
   width: 100vw;
   height: 82vh;
-  background-color: rgb(101, 105, 107);
+  /* background-color: rgb(101, 105, 107); */
+   background-image: url("../../assets/blocks-fletcher-hGlBGfql5Kc-unsplash.jpg");
+  background-size: 100% 100%;
+}
+
+.payment-card > h2 {
+  position: relative;
+  width: 100vw;
+  color: black;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  padding: 96px 0 0 0;
+  text-align: center;
 }
 
 .payment-qr {
- width: fit-content;
- height: fit-content;
- display: flex;
- flex-direction: column;
- position: relative;
- left: 38%;
- top: 5%;
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  padding: 8px;
+  top: 5%;
 }
 
 .payment-qr > IMG {
- width: 400px;
- height: fit-content;
- border-radius: 12px;
+  width: 400px;
+  height: fit-content;
+  border-radius: 12px;
 }
 
-.payment-card > button {
+.payment-upload {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   position: relative;
-  left: 43%;
+  justify-content: center;
+  top: 8%;
+  padding: 16px;
+}
+
+.payment-upload > button {
+  position: relative;
   top: 10%;
   width: 200px;
   height: 60px;
@@ -30,6 +53,23 @@
   text-align: center;
   font-size: x-large;
   font-weight: 800;
-  /* background-color: rgb(2, 105, 41); */
-  
+}
+
+@media (max-width: 960px) {
+  .payment-card {
+    width: 100vw;
+    height: 82vh;
+    background-color: rgb(122, 135, 147);
+  }
+
+  .payment-qr {
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    padding: 2px;
+    top: 5%;
+  }
 }

@@ -1,4 +1,6 @@
 .login-form {
+  margin: 0;
+  padding: 0;
   width: 100vw;
   height: 82vh;
   background-image: url("../src/assets/entrance.jpg");
@@ -46,33 +48,89 @@ svg {
   margin-top: 24px;
   left: -18%;
 }
+
+.login-button > p {
+  margin-top: 60%;
+  font-size: 12px;
+  color: black;
+}
+
+.login-button > a > span {
+  position: relative;
+  color: rgb(13, 0, 255);
+  font-size: 12px;
+  bottom: 50%;
+}
 .signup {
-  position: relative;
-  text-align: center;
-  
-  /* background-color: aquamarine; */
-  z-index: 100;
-  width: fit-content;
-  height: 64px;
-  top: 12%;
-  left: 46%;
+  display: none;
 }
 
-.signup > p {
-  position: relative;
-  width: 200px;
-  top: 20px;
-  margin: 0;
-  padding: 0;
-  color: rgb(0, 0, 0);
-  font-size: 11px;
-}
+@media (max-width: 960px) {
+  .login-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 82vh;
+    background-image: none;
+  }
 
-.signup > a {
-  position: relative;
-  width: 100px;
-  top: 10px;
-  color: rgb(30, 0, 255);
-  font-size: 11px;
-  font-weight: 400;
+  .login-formbasic {
+    left: 0%;
+    top: 0;
+    width: 100%;
+    height: 98%;
+    padding: 16px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 0px;
+    background-color: none;
+  }
+
+  .login-button {
+    position: relative;
+    justify-content: center;
+    height: 2.4em;
+    font-size: 1.2rem;
+    font-weight: 500;
+    top: auto;
+    left: auto;
+  }
+
+  .login-formbasic > form {
+    margin-top: -30%;
+    margin-left: -10%;
+  }
+
+  .login-button > p {
+    display: none;
+  }
+
+  .login-button > a > span {
+    display: none;
+  }
+
+  .signup {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-around;
+    width: 90%;
+    z-index: 100;
+    top: -40%;
+  }
+  .signup > p {
+    color: black;
+    font-size: 12px;
+    margin: 32px 32px 32px 8px;
+  }
+
+  .signup > a > p {
+    color: rgb(8, 0, 255);
+    font-size: 12px;
+    margin: 32px;
+  }
 }
