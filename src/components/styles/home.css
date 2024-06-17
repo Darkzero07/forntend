@@ -94,11 +94,7 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-
-
 @media only screen and (max-width: 960px) {
-  
-  
   .body {
     background-image: url("src/assets/Background-football.png");
     display: flex;
@@ -124,26 +120,34 @@ h2 {
     margin-top: 12px;
   }
 
-  .carousel  {
+  .carousel {
     order: 0;
   }
 
-  .content h1{
+  .content h1 {
     margin-top: 24px;
+    padding: 24px;
   }
 
-  .content h2  {
+  .content h2 button {
     margin-top: 24px;
-    order: 4;
-  }
-
-  .content button{
-    order: 6;
+    order: 5;
   }
 
   .carousel {
-    width: 800px;
+    width: 650px;
     height: 500px;
   }
-  
+
+  .content button {
+    margin-bottom: 48px;
+  }
+
+  .second-section{
+    margin-top: 24px;
+  }
+
+  .img-activity {
+    margin-top: 0;
+  }
 }
