@@ -13,7 +13,8 @@
   position: relative;
   width: 400px;
   padding: 0 0 16px 0;
-  left: 72%;
+  left: 80%;
+ padding-right: 64px;
   align-content: center;
 }
 
@@ -24,12 +25,20 @@
   justify-content: center;
 }
 
-
 @media (max-width: 960px) {
   .dashboard {
     width: 100vw;
     height: 82vh;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(78, 81, 81);
     padding: 8px 0 0 0;
+  }
+  .dashboard-button {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 400px;
+    padding: 0 0 16px 0;
+    left: 2%;
+    align-content: center;
   }
 }

@@ -12,7 +12,7 @@
   text-align: center;
   margin: 0;
   padding: 8px 0 16px 0;
-  background-color: #035a00;
+  background-color: rgb(49, 51, 50);
 }
 
 .time-slot {
@@ -27,14 +27,14 @@
 }
 
 .time-select {
-  width: 880px;
+  width: 900px;
   height: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 16px;
+  padding: 24px 16px 24px 16px;
   border-radius: 8px;
-  justify-content: center;
+  justify-content: space-around;
   background-color: rgb(49, 51, 50);
 }
 
@@ -69,7 +69,7 @@
   position: relative;
   justify-content: center;
   width: 100vw;
-  margin-top: 7%;
+  margin-top: 8%;
 }
 
 .time-booking-button > button {
@@ -111,20 +111,19 @@
     height: 82vh;
     margin: 0;
     padding: 0;
-    background-image: url("../../assets/bg_footballstadium.png");
-    background-size: cover;
-    overflow-y: scroll;
+    background-image: none;
+    background-color: rgb(175, 175, 175);
   }
 
   .time-slot {
-    width: 100vw;
+    width: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;
     top: 10%;
     margin: 0;
-    padding: 0;
+    padding: 16px;
     border-radius: 8px;
     justify-content: center;
   }
@@ -135,12 +134,10 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    position: relative;
     align-items: center;
-    margin: 4px;
-    padding: 4px;
+    padding: 16px 0 16px 0;
     border-radius: 8px;
-    justify-content: center;
+    justify-content: space-around;
     background-color: rgb(49, 51, 50);
   }
 
@@ -166,7 +163,11 @@
     position: relative;
     justify-content: center;
     top: 15%;
-    padding: 16px;
+    padding: 4px;
     background-color: black;
+  }
+  .time-button {
+    width: 160px;
+    margin: 4px;
   }
 }

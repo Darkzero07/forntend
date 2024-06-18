@@ -121,8 +121,14 @@ h2 {
     margin-top: 12px;
   }
 
-  .carousel {
+  .carousel > {
     order: 0;
+  }
+
+  .carousel-width {
+    order: 0;
+    width: 800px;
+    height: 600px;
   }
 
   .content h1 {
@@ -135,16 +141,11 @@ h2 {
     order: 5;
   }
 
-  .carousel {
-    width: 650px;
-    height: 500px;
-  }
-
   .content button {
     margin-bottom: 48px;
   }
 
-  .second-section{
+  .second-section {
     margin-top: 24px;
   }
 

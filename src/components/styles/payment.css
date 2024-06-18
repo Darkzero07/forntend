@@ -59,7 +59,8 @@
   .payment-card {
     width: 100vw;
     height: 82vh;
-    background-color: rgb(122, 135, 147);
+     background-image: none;
+    background-color: rgb(175, 175, 175);
   }
 
   .payment-qr {

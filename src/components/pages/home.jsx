@@ -38,7 +38,7 @@ const Home = () => {
           <Link to="/arenaBooking" ><button className="button">จอง</button></Link>
         </div>
         <div className="carousel">
-          <Carousel {...carouselSettings}>
+          <Carousel {...carouselSettings} className="carousel-width">
             {images.map((src, index) => (
               <div key={index}>
                 <img src={src} style={contentStyle} alt="" />

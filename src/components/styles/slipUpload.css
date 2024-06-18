@@ -9,7 +9,6 @@
   padding: 24px;
     background-image: url("../../assets/blocks-fletcher-hGlBGfql5Kc-unsplash.jpg");
   background-size: 100% 100%;
-
 }
 
 .upload-container {
@@ -34,7 +33,7 @@
 }
 
 .upload-slip {
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255, 0.5);
   width: 640px;
   height: 480px;
   border-radius: 16px;
@@ -82,6 +81,7 @@ div > a {
     padding: 0;
     width: 100vw;
     height: 82vh;
+    background-image: none;
     background-color: aliceblue;
   }
 
@@ -102,7 +102,7 @@ div > a {
     width: auto;
     height: auto;
     margin: 0;
-    padding: 0;
+    padding: 32px;
   }
 
   .upload-slip > h2 {
@@ -127,8 +127,8 @@ div > a {
   }
 
   .upload-slip > button {
-    margin-top: 10%;
-    margin-left: -70%;
+    margin-top: 2%;
+    margin-left: -72%;
     font-size: 24px;
     font-weight: 600;
     color: rgb(255, 255, 255);

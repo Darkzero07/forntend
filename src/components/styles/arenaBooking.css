@@ -11,7 +11,7 @@
   text-align: center;
   margin: 0;
   padding: 8px 0 16px 0;
-  background-color: #035a00;
+  background-color: rgb(49, 51, 50);
 }
 
 .booking-card {
@@ -57,9 +57,8 @@
     width: 100vw;
     height: 82vh;
     padding: 0;
-    background-image: url("../../assets/bg_footballstadium.png");
-    background-size: cover;
-    overflow-y: scroll;
+    background-image: none;
+    background-color: rgb(175, 175, 175);
   }
 
   .booking-card {
@@ -69,7 +68,7 @@
     flex-wrap: wrap;
     height: fit-content;
     justify-content: space-around;
-    top: 5%;
+    top: 10%;
   }
 
   .booking > h1 {
