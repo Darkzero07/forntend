@@ -4,6 +4,7 @@ import "./navbar.css";
 import { jwtDecode } from "jwt-decode";
 import localStorageService from "../../services/localStorageService";
 import { useNavigate } from "react-router-dom";
+import { UserOutlined } from '@ant-design/icons';
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
@@ -70,7 +71,7 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="nav-user">
-          <button onClick={handleClickProfile}>user: {username}</button>
+          <button onClick={handleClickProfile}><UserOutlined />{username}</button>
         </div>
       </nav>
       {click && <div className="backdrop" onClick={toggleSidebar}></div>}

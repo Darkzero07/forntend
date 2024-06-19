@@ -78,15 +78,19 @@
 .nav-user > button {
   width: fit-content;
   height: fit-content;
-  padding: 2px 8px 4px 8px;
+  padding: 2px 8px 4px 0;
   margin: 0;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
   background-color: transparent;
   color: black;
   border-radius: 2px;
   cursor: pointer;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); */
+}
+
+.nav-user > button > span > svg {
+  margin: 4px 8px 4px 8px;
 }
 
 .nav-user > button:focus {

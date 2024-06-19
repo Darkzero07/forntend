@@ -59,8 +59,9 @@ svg {
   position: relative;
   color: rgb(13, 0, 255);
   font-size: 12px;
-  bottom: 50%;
+  bottom: 10%;
 }
+
 .signup {
   display: none;
 }
@@ -131,6 +132,6 @@ svg {
   .signup > a > p {
     color: rgb(8, 0, 255);
     font-size: 12px;
-    margin: 32px;
+    margin-top: 32px;
   }
 }

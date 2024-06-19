@@ -1,7 +1,9 @@
 .profile-body {
   width: 100vw;
   height: 82vh;
-  background-color: rgb(4, 162, 109);
+  /* background-color: rgb(4, 162, 109); */
+  background-image: url("../../assets/timothy-tan-PAe2UhGo-S4-unsplash.jpg");
+  background-size:100% 100%;
   padding: 16px;
 }
 
@@ -12,6 +14,7 @@
   width: 100vw;
   height: 400px;
   align-items: center;
+  margin-top: 5%;
 }
 
 .profile-welcome > h1 {
@@ -22,11 +25,16 @@
 }
 
 .profile-welcome > p {
-  margin-top: -1%;
+  margin-top: 1%;
   font-size: 36px;
   font-weight: 600;
-  color: blue;
+  color: rgb(255, 255, 255);
   font-family: "Times New Roman", Times, serif;
+}
+
+
+.profile-dashboard {
+  margin-top: 5%;
 }
 
 .profile-dashboard > a {
@@ -45,6 +53,7 @@
 }
 
 .profile-logout > button {
+  margin-top: 30%;
   padding: 4px;
   width: 150px;
   height: fit-content;
@@ -56,6 +65,7 @@
   .profile-body {
     width: 100vw;
     height: 82vh;
+    background-image: none;
     background-color: rgb(4, 162, 109);
     padding: 4px;
   }
@@ -67,7 +77,7 @@
     width: 100vw;
     height: 400px;
     align-items: center;
-    margin-top: 35%;
+    margin-top: 5%;
   }
 
   .profile-welcome > h1 {
@@ -78,10 +88,10 @@
   }
 
   .profile-welcome > p {
-    margin-top: -1%;
+    margin-top: 1%;
     font-size: 28px;
     font-weight: 600;
-    color: blue;
+    color: rgb(0, 42, 255);
     font-family: "Times New Roman", Times, serif;
   }
 
