@@ -7,6 +7,8 @@
   text-align: center;
   background-image: url("../../assets/jonathan-petersson-ARU18GpF6QQ-unsplash.jpg");
   background-size: 100% 100%;
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .booking-result > h1 {
@@ -36,6 +38,11 @@
   font-weight: 800;
   color: rgb(255, 0, 0);
   font-family: "Times New Roman", Times, serif;
+}
+
+.booking-result > a > p {
+  text-decoration:underline;
+  
 }
 
 @media (max-width: 960px) {

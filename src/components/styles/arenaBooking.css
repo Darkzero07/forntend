@@ -4,6 +4,8 @@
   padding: 0;
   background-image: url("../../assets/bg_footballstadium.png");
   background-size: 100% 100%;
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.7);
   overflow-x: auto;
 }
 

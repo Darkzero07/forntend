@@ -7,13 +7,21 @@
   background-size: 100% 100%;
 }
 
+.login-box {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100vw;
+  height: 80%;
+  top: 10%;
+}
+
 .login-formbasic {
   display: flex;
   position: relative;
-  left: 39.5%;
-  top: 20%;
-  width: 440px;
-  height: 380px;
+  width: 600px;
+  height: 500px;
+  top: 5%;
   padding: 16px 16px 4px 4px;
   justify-content: center;
   text-align: center;
@@ -45,8 +53,6 @@ svg {
   height: 2.4em;
   font-size: 1.2rem;
   font-weight: 500;
-  margin-top: 24px;
-  left: -18%;
 }
 
 .login-button > p {
@@ -78,32 +84,25 @@ svg {
     background-image: none;
   }
 
+  .login-box {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+  }
+
   .login-formbasic {
     left: 0%;
     top: 0;
     width: 100%;
-    height: 98%;
+    height: 100%;
     padding: 16px;
     justify-content: center;
     text-align: center;
     align-items: center;
     border-radius: 0px;
     background-color: none;
-  }
-
-  .login-button {
-    position: relative;
-    justify-content: center;
-    height: 2.4em;
-    font-size: 1.2rem;
-    font-weight: 500;
-    top: auto;
-    left: auto;
-  }
-
-  .login-formbasic > form {
-    margin-top: -30%;
-    margin-left: -10%;
   }
 
   .login-button > p {
@@ -116,22 +115,22 @@ svg {
 
   .signup {
     display: flex;
-    flex-direction: row;
-    position: relative;
+    /* position: absolute; */
+    position: fixed;
     justify-content: space-around;
-    width: 90%;
+    width: 500px;
     z-index: 100;
-    top: -40%;
+    margin: 600px 0 0 0;
   }
   .signup > p {
     color: black;
-    font-size: 12px;
-    margin: 32px 32px 32px 8px;
+    font-size: 16px;
+    font-weight: 400;
   }
 
   .signup > a > p {
-    color: rgb(8, 0, 255);
-    font-size: 12px;
-    margin-top: 32px;
+    color: blue;
+    font-size: 16px;
+    font-weight: 400;
   }
 }

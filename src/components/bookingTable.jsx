@@ -204,6 +204,7 @@ const BookingTable = ({
           ...booking,
           key: index,
         }))}
+        // pagination={{ pageSize: 12 }}
         loading={loading}
       />
     </div>
