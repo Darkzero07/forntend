@@ -153,7 +153,7 @@ const Register = () => {
                 type="primary"
                 htmlType="submit"
               >
-                Submit
+                Register
               </Button>
             </Form.Item>
           </Form>

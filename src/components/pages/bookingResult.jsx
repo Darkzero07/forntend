@@ -25,6 +25,7 @@ function bookingResult() {
       setLoading(false);
     }
   };
+  
   return (
     <div className="booking-result">
       <h1>Congratulation!</h1>

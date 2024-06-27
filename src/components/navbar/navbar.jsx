@@ -4,7 +4,7 @@ import "./navbar.css";
 import { jwtDecode } from "jwt-decode";
 import localStorageService from "../../services/localStorageService";
 import { useNavigate } from "react-router-dom";
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined } from "@ant-design/icons";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
@@ -24,11 +24,18 @@ const NavBar = () => {
       } catch (error) {
         console.error("Invalid token:", error);
       }
+    } else {
+      setUsername("guest");
     }
   };
 
   useEffect(() => {
     fetchUserData();
+    const interval = setInterval(() => {
+      fetchUserData();
+    }, 3000); 
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleClickProfile = () => {
@@ -71,7 +78,10 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="nav-user">
-          <button onClick={handleClickProfile}><UserOutlined />{username}</button>
+          <button onClick={handleClickProfile}>
+            <UserOutlined />
+            {username}
+          </button>
         </div>
       </nav>
       {click && <div className="backdrop" onClick={toggleSidebar}></div>}

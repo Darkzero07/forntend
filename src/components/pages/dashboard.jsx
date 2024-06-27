@@ -13,7 +13,8 @@ const Dashboard = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false);
-  const [isUpdateBookingModalVisible, setIsUpdateBookingModalVisible] = useState(false);
+  const [isUpdateBookingModalVisible, setIsUpdateBookingModalVisible] =
+    useState(false);
   const [form] = Form.useForm();
 
   useEffect(() => {
@@ -33,11 +34,13 @@ const Dashboard = () => {
 
       const updatedBookingsData = await Promise.all(
         bookingsData.map(async (booking) => {
-          let pathSlip = booking.status;
-
           if (booking.status === "pending") {
-            const responseSlip = await axios.get(`/slip/getSlip/${booking.id}`);
-            pathSlip = responseSlip.data[0]?.slip_path ;
+            const responseSlip = await axios.get(
+              `/slip/getSlipById/${booking.id}`
+            );
+            console.log(responseSlip.data);
+            const pathSlip = responseSlip.data[0]?.slip_path;
+            console.log(pathSlip);
             if (pathSlip) {
               const bookingStatus = { status: pathSlip };
               await axios.put(
@@ -197,7 +200,7 @@ const Dashboard = () => {
   //   }
   // };
 
-   const hasSelected = selectedRowKeys.length > 0;
+  const hasSelected = selectedRowKeys.length > 0;
 
   return (
     <div className="dashboard">
